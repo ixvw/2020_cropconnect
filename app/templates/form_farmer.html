@@ -1,1 +1,37 @@
+{% import 'bootstrap/form.html' as wtf %}
+
 <p>User said he was a farmer</p>
+
+<div>
+    <form method="POST">
+        {{ farmerform.csrf_token() }}
+        {{ wtf.form_errors(farmerform, hiddens="only") }}
+
+        {{ farmerform.farmerlocation }}
+        {{ farmerform.farmerlocation.label(class="control-label") }}
+
+        {{ farmerform.help }}
+        {{ farmerform.help.label(class="control-label") }}
+
+        {{ farmerform.details }}
+        {{ farmerform.details.label(class="control-label") }}
+
+        {{ farmerform.when }}
+        {{ farmerform.when.label(class="control-label") }}
+
+        {{ farmerform.phone }}
+        {{ farmerform.phone.label(class="control-label") }}
+
+        {{ farmerform.email }}
+        {{ farmerform.email.label(class="control-label") }}
+
+        {{ farmerform.farmerSubmit }}
+
+    </form>
+</div>
+
+<!--
+Docs for google places autocomplete address field
+-> using the wrapper "geocomplete":
+https://ubilabs.github.io/geocomplete/
+-->

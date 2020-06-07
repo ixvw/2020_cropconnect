@@ -1,0 +1,22 @@
+{% import 'bootstrap/form.html' as wtf %}
+
+<p>User said he wants to help</p>
+
+<div>
+    <form method="post">
+        {{ helperform.csrf_token() }}
+        {{ wtf.form_errors(helperform, hiddens="only") }}
+
+        {{ helperform.helperlocation }}
+        {{ helperform.helperlocation.label(class="control-label") }}
+
+        {{ helperform.helperSubmit }}
+
+    </form>
+</div>
+
+<!--
+Docs for google places autocomplete address field
+-> using the wrapper "geocomplete":
+https://ubilabs.github.io/geocomplete/
+-->
