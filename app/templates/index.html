@@ -9,11 +9,46 @@
     -->
     <div class="btn-group btn-group-toggle" data-toggle="buttons">
         <label class="btn btn-secondary">
-            <input type="radio" name="role" id="helper"> I want to help!
+            <input type="radio" name="role" id="helper" value="helper"> I want to help!
         </label>
         <label class="btn btn-secondary">
-            <input type="radio" name="role" id="farmer"> I am a farmer!
+            <input type="radio" name="role" id="farmer" value="farmer"> I am a farmer!
         </label>
     </div>
 
+    <div id="farmer-fields" style="display:none">
+         {% include 'form_farmer.html' %}
+    </div>
+
+    <div id="helper-fields" style="display:none">
+        {% include 'former_helper.html' %}
+    </div>
+
 {% endblock %}
+
+{%  block scripts %}
+{{ super() }}
+
+    <!--
+    show farmer or helper fields depending on selection,
+    show nothing if nothing selected
+    -->
+    <script>
+
+    $(document).ready(function() {
+        $('input').change(function() {
+            if ($('input[value="helper"]').is(':checked')) {
+                $('#helper-fields').show();
+                 $('#farmer-fields').hide();
+                console.log("user clicked on: I want to help!")
+            }
+            else if ($('input[value="farmer"]').is(':checked')) {
+                $('#farmer-fields').show();
+                $('#helper-fields').hide();
+                console.log("user clicked on: I am a farmer!")
+            }
+        });
+    });
+    </script>
+{% endblock %}
+
