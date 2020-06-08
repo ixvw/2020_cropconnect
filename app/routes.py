@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, url_for, request
 
 from app.forms import *
 
+from app.util.sendgridMail import sendgridMail
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -21,6 +22,8 @@ def index():
             # TODO: insted of "0000" send real idToValidate to /validate_email
 
             idToValidate = "00000"
+
+            sendgridMail(idToValidate, farmerform.email.data)
 
             return redirect(url_for("validate_email", messages=idToValidate))
 

@@ -1,3 +1,4 @@
 /venv/
 /specification/
-/app/static/css/src/styles.css.map
+/app/static/css/styles.css.map
+/credentials.py
