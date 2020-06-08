@@ -1,6 +1,6 @@
 # README - 2020_cropconnect
 
-##Local testing
+## Local testing
 on Windows:
 1. install Python (3.8.x)
 2. open Powershell in project folder (where main.py is)
