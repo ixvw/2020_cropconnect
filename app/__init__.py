@@ -5,5 +5,8 @@ from config import Config
 app = Flask(__name__)
 app.config.from_object(Config)
 
+from app.database import db
+db.create_all()
+
 from app import routes
 bootstrap = Bootstrap(app)

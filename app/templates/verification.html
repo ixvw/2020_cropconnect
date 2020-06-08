@@ -1,0 +1,16 @@
+{%  extends 'base.html' %}
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block content %}
+<div>
+    <form method="POST">
+        {{ form.csrf_token() }}
+        {{ wtf.form_errors(form, hiddens="only") }}
+
+        {{ form.verificationCode }}
+        {{ form.verificationCode.label(class="control-label") }}
+
+        {{ form.submit }}
+    </form>
+</div>
+{% endblock %}

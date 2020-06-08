@@ -5,12 +5,15 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 
-def sendgridMail(verificationCode, toEmail):
+def sendgridMail(verificationCode, idToValidate, toEmail):
     message = Mail(
         from_email='hello@cropconnect.world ',
         to_emails=toEmail,
         subject='Cropconnect Verficiation Code',
-        html_content="Your cropconnect verification code is: {}".format(verificationCode))
+        html_content="Your cropconnect verification code is: {} <br>"
+                     "or click the link: "
+                     "http://localhost:5000/validate_email?validationId={}&"
+                     "verification={}".format(verificationCode, idToValidate, verificationCode))
 
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))

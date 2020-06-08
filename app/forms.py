@@ -23,3 +23,8 @@ class HelperForm(FlaskForm):
     helperlocation = StringField("Where do you live?", validators=[InputRequired()])
 
     helperSubmit = SubmitField("Submit")
+
+
+class VerficationForm(FlaskForm):
+    verificationCode = StringField("Verification Code")
+    submit = SubmitField("Verify!")
