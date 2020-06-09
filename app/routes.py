@@ -96,6 +96,7 @@ def farms():
         farmlist = []
 
         # calculate the distance to the helper for each farm
+        # also: extract ZIP + City from formatted_address to show in list of farms
         for farm_orm in farmresults:
             farm = orm_object_as_dict(farm_orm)
             coords_farm = (farm["lat"], farm["lng"])
@@ -103,13 +104,19 @@ def farms():
 
             farm["distance"] = dist
 
+            split_address = farm["formatted_address"].split(",")
+            # formatted_address should always look like:
+            # ETH Zürich Hauptgebäude, Rämistrasse 101, 8092 Zürich, Schweiz
+            # hence we need to use the penultimate entry of the list
+            # maybe in the future we need to check where the string starts with a number and use that element.
+
+            farm["ZipCity"] = split_address[-2]
+
             farmlist.append(farm)
 
         # sort farms from nearest to farthest
         farms = sorted(farmlist, key=lambda k: k["distance"])
 
-        print(farms)
-
-        return("hello farms!")
+        return render_template("farms.html", farms=farms)
 
     return("uups - something went wrong")

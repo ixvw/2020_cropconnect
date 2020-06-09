@@ -42,22 +42,22 @@
             if ($('input[value="helper"]').is(':checked')) {
                 $('#helper-fields').show();
                 $('#farmer-fields').hide();
-                console.log("user clicked on: I want to help!")
+                // console.log("user clicked on: I want to help!")
             }
             else if ($('input[value="farmer"]').is(':checked')) {
                 $('#farmer-fields').show();
                 $('#helper-fields').hide();
-                console.log("user clicked on: I am a farmer!")
+                // console.log("user clicked on: I am a farmer!")
             }
         });
         $("#farmerlocation").geocomplete({ details: ".details" })
         $("#helperlocation")
             .geocomplete()
             .bind("geocode:result", function(event, result){
-                console.log(result)
+                // console.log(result)
                 $.ajax("{{ url_for('farms') }}?lat="+result.geometry.location.lat()+"&lng="+result.geometry.location.lng()).done(function (reply) {
                     $('#farms').html(reply);
-                    console.log("helper entered a location")
+                    // console.log("helper entered a location")
                 });
             });
     });

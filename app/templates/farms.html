@@ -1,1 +1,29 @@
-<p> this will hold the list of farms </p>
+<p> this will hold the list of farms: </p>
+
+{% for farm in farms %}
+    <div class="farm-list">
+        <button type="button" class="btn btn-primary">{{ farm.help }}</button>
+        <button type="button" class="btn btn-primary">{{ farm.ZipCity }}</button>
+        <button type="button" class="btn btn-primary">Additional Details</button>
+        <button type="button" class="btn btn-primary">Contact</button>
+    </div>
+    <div class="farm-details" id="details_{{ farm.id }}">
+        <div class="farm-detail" id="address_{{ farm.id }}">
+            {{ farm.formatted_address }}
+        </div>
+        <div class="farm-detail" id="detail_{{ farm.id }}">
+            {{ farm.details }}
+        </div>
+        <div class="farm-detail" id="contact_{{ farm.id }}">
+            E-Mail: {{ farm.email }}
+            <br>
+            Phone: {{ farm.phone }}
+        </div>
+
+    </div>
+{% endfor %}
+
+<script>
+
+
+</script>
