@@ -50,14 +50,16 @@
                 console.log("user clicked on: I am a farmer!")
             }
         });
-        $('#helperSubmit').click(function() {
-           $.ajax("{{ url_for('farms') }}").done(function (reply) {
-              $('#farms').html(reply);
-              console.log("user clicked on: the helper form's submit button")
-           });
-        });
         $("#farmerlocation").geocomplete();
-        $("#helperlocation").geocomplete();
+        $("#helperlocation")
+            .geocomplete()
+            .bind("geocode:result", function(event, result){
+                console.log(result);
+                $.ajax("{{ url_for('farms') }}").done(function (reply) {
+                    $('#farms').html(reply);
+                    console.log("helper entered a location")
+                });
+            });
     });
     </script>
 {% endblock %}
