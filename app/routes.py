@@ -15,10 +15,6 @@ def index():
     farmerform = FarmerForm()
     helperform = HelperForm()
 
-    if helperform.validate_on_submit():
-        if helperform.helperlocation.data != "":
-            return("helper provided his data")
-
     if farmerform.validate_on_submit():
         if farmerform.farmerlocation.data != "":
             # TODO: Write farm info to db (table of not validated farms), create verification code and send e-mail with
@@ -83,3 +79,6 @@ def validate_email():
 
     return("farmer provided his data -> ask him to validate his email. idToValidate = {}".format(messages))
 
+@app.route('/farms', methods=['GET', 'POST'])
+def farms():
+    return("hello farms!")

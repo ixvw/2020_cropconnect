@@ -24,6 +24,8 @@
         {% include 'form_helper.html' %}
     </div>
 
+    <div id="farms"></div>
+
 {% endblock %}
 
 {%  block scripts %}
@@ -39,7 +41,7 @@
         $('input').change(function() {
             if ($('input[value="helper"]').is(':checked')) {
                 $('#helper-fields').show();
-                 $('#farmer-fields').hide();
+                $('#farmer-fields').hide();
                 console.log("user clicked on: I want to help!")
             }
             else if ($('input[value="farmer"]').is(':checked')) {
@@ -48,6 +50,14 @@
                 console.log("user clicked on: I am a farmer!")
             }
         });
+        $('#helperSubmit').click(function() {
+           $.ajax("{{ url_for('farms') }}").done(function (reply) {
+              $('#farms').html(reply);
+              console.log("user clicked on: the helper form's submit button")
+           });
+        });
+        $("#farmerlocation").geocomplete();
+        $("#helperlocation").geocomplete();
     });
     </script>
 {% endblock %}

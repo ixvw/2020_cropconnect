@@ -1,5 +1,6 @@
 {% import 'bootstrap/form.html' as wtf %}
 
+{% block content %}
 <p>User said he wants to help</p>
 
 <div>
@@ -9,14 +10,14 @@
 
         {{ helperform.helperlocation }}
         {{ helperform.helperlocation.label(class="control-label") }}
-
-        {{ helperform.helperSubmit }}
-
     </form>
 </div>
+{% endblock %}
 
 <!--
 Docs for google places autocomplete address field
 -> using the wrapper "geocomplete":
 https://ubilabs.github.io/geocomplete/
+
+/!\ autocomplete is added to the field in index.html
 -->

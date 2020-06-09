@@ -12,7 +12,7 @@
             <!-- Bootstrap CSS -->
             {{ bootstrap.load_css() }}
 
-            <!-- EKZ css -->
+            <!-- CropConnect css -->
             {{ render_static('css', 'css/styles.css') }}
             {{ render_static('css', 'css/framework/framework.css') }}
         {% endblock %}
@@ -29,6 +29,10 @@
 {% block scripts %}
     <!-- Optional JavaScript -->
     {{ bootstrap.load_js() }}
+
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDSjI667dlhTG_PU_2tyTrmD0ZvHxTY6mo"></script>
+    <script src="static/js/jquery.geocomplete.js"></script>
+
 {% endblock %}
 
 </body>
