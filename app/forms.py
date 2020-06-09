@@ -16,6 +16,11 @@ class FarmerForm(FlaskForm):
     phone = StringField("Phone number")
     email = EmailField("Your E-Mail address?")
 
+    # hidden fields: used to get data from places API and store it in db
+    formatted_address = HiddenField()
+    lat = HiddenField()
+    lng = HiddenField()
+
     farmerSubmit = SubmitField("Submit")
 
 

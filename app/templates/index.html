@@ -50,10 +50,11 @@
                 console.log("user clicked on: I am a farmer!")
             }
         });
-        $("#farmerlocation").geocomplete();
+        $("#farmerlocation").geocomplete({ details: ".details" })
         $("#helperlocation")
             .geocomplete()
             .bind("geocode:result", function(event, result){
+                console.log(result)
                 $.ajax("{{ url_for('farms') }}?lat="+result.geometry.location.lat()+"&lng="+result.geometry.location.lng()).done(function (reply) {
                     $('#farms').html(reply);
                     console.log("helper entered a location")

@@ -11,6 +11,8 @@ from app.util.sendgridMail import sendgridMail
 
 from geopy import distance
 
+from app.util.orm import orm_object_as_dict
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -19,11 +21,9 @@ def index():
 
     if farmerform.validate_on_submit():
         if farmerform.farmerlocation.data != "":
-            # TODO: Write farm info to db (table of not validated farms), create verification code and send e-mail with
-            # verification code / link to the given e-mail adress
-            farm = Farm(email=farmerform.email.data, farmerlocation=farmerform.farmerlocation.data,
+            farm = Farm(email=farmerform.email.data, formatted_address=farmerform.formatted_address.data,
                         help=farmerform.help.data, details=farmerform.details.data, when=farmerform.when.data,
-                        phone=farmerform.phone.data)
+                        phone=farmerform.phone.data, lat=farmerform.lat.data, lng=farmerform.lng.data)
 
             verificationCode = randint(100000, 999999)
             farm.verificationCode = verificationCode
@@ -87,23 +87,28 @@ def farms():
     helper_lng = request.args.get("lng", None)
 
     if helper_lat is not None:
-        print(helper_lat)
-        print(helper_lng)
         # take lat and long of helper adress as input
         coords_origin = (helper_lat, helper_lng)
 
         # query for farms
-        farms = []
+        farmresults = Farm().query.filter(Farm.verified == True).all()
+
+        farmlist = []
 
         # calculate the distance to the helper for each farm
-        for farm in farms:
-            farm_lat = 0
-            farm_lng = 0
-
-            coords_farm = (farm_lat, farm_lng)
+        for farm_orm in farmresults:
+            farm = orm_object_as_dict(farm_orm)
+            coords_farm = (farm["lat"], farm["lng"])
             dist = distance.vincenty(coords_origin, coords_farm).km
 
+            farm["distance"] = dist
+
+            farmlist.append(farm)
+
         # sort farms from nearest to farthest
+        farms = sorted(farmlist, key=lambda k: k["distance"])
+
+        print(farms)
 
         return("hello farms!")
 
