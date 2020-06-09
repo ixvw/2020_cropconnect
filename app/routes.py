@@ -9,6 +9,8 @@ from app.database import db, Farm
 
 from app.util.sendgridMail import sendgridMail
 
+from geopy import distance
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -81,4 +83,28 @@ def validate_email():
 
 @app.route('/farms', methods=['GET', 'POST'])
 def farms():
-    return("hello farms!")
+    helper_lat = request.args.get("lat", None)
+    helper_lng = request.args.get("lng", None)
+
+    if helper_lat is not None:
+        print(helper_lat)
+        print(helper_lng)
+        # take lat and long of helper adress as input
+        coords_origin = (helper_lat, helper_lng)
+
+        # query for farms
+        farms = []
+
+        # calculate the distance to the helper for each farm
+        for farm in farms:
+            farm_lat = 0
+            farm_lng = 0
+
+            coords_farm = (farm_lat, farm_lng)
+            dist = distance.vincenty(coords_origin, coords_farm).km
+
+        # sort farms from nearest to farthest
+
+        return("hello farms!")
+
+    return("uups - something went wrong")
