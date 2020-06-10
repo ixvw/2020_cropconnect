@@ -3,23 +3,26 @@
 {% for farm in farms %}
     <div class="farm-list">
         <button type="button" class="btn btn-primary">{{ farm.help }}</button>
-        <button type="button" class="btn btn-primary">{{ farm.ZipCity }}</button>
-        <button type="button" class="btn btn-primary">Additional Details</button>
-        <button type="button" class="btn btn-primary">Contact</button>
+        <button type="button" class="btn btn-primary" data-toggle="collapse" href="#address_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }}">{{ farm.ZipCity }}</button>
+        <button type="button" class="btn btn-primary" data-toggle="collapse" href="#detail_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="detail_{{ farm.id }}">Additional Details</button>
+        <button type="button" class="btn btn-primary" data-toggle="collapse" href="#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="contact_{{ farm.id }}">Contact</button>
     </div>
-    <div class="farm-details" id="details_{{ farm.id }}">
-        <div class="farm-detail" id="address_{{ farm.id }}">
+    <div class="collapse" id="address_{{ farm.id }}">
+        <div class="card card-body" id="address_{{ farm.id }}">
             {{ farm.formatted_address }}
         </div>
-        <div class="farm-detail" id="detail_{{ farm.id }}">
+    </div>
+    <div class="collapse" id="detail_{{ farm.id }}">
+        <div class="card card-body" id="detail_{{ farm.id }}">
             {{ farm.details }}
         </div>
-        <div class="farm-detail" id="contact_{{ farm.id }}">
+    </div>
+    <div class="collapse" id="contact_{{ farm.id }}">
+        <div class="card card-body" id="contact_{{ farm.id }}">
             E-Mail: {{ farm.email }}
             <br>
             Phone: {{ farm.phone }}
         </div>
-
     </div>
 {% endfor %}
 
