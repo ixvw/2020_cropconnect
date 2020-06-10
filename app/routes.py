@@ -120,3 +120,7 @@ def farms():
         return render_template("farms.html", farms=farms)
 
     return("uups - something went wrong")
+
+@app.route('/about', methods=['GET', 'POST'])
+def about():
+    return render_template("about.html")
