@@ -1,3 +1,42 @@
-.btn-secondary
+$green: #008837
+
+.btn-primary
   color: white
-  background-color: green
+  background-color: $green
+  border-color: $green
+  margin-right: 0.8rem
+  font-weight: bold
+  padding: 0.8rem 2rem
+
+.btn-primary:not(:disabled):not(.disabled).active
+  background-color: grey
+  border-color: grey
+
+.btn-primary:hover
+  background-color: grey
+
+.btn-group-toggle
+  align-content: center
+
+.navbar
+  border-bottom: #008837
+  border-bottom-width: 4px
+  border-bottom-style: solid
+
+.navbar-brand
+  align-content: flex-start
+
+// TODO: to change the navbar toggler (3 stripes on the right: need a custom .svg -> see Stackoverflow)
+// https://stackoverflow.com/questions/42586729/bootstrap-4-change-hamburger-toggler-color
+
+input
+  border-radius: 0.2rem
+  border-color: $green
+  border-style: solid
+  border-width: 0.5px
+
+
+body
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+  font-weight: 300
+
