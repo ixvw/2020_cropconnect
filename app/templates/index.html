@@ -1,31 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <p>Hello CropConnect!</p>
-
     <!--
     How to show radio buttons as button group:
     https://getbootstrap.com/docs/4.5/components/buttons/#checkbox-and-radio-buttons
     -->
-    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-        <label class="btn btn-primary rounded">
-            <input type="radio" name="role" id="helper" value="helper"> I want to help!
-        </label>
-        <label class="btn btn-primary rounded">
-            <input type="radio" name="role" id="farmer" value="farmer"> I am a farmer!
-        </label>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
+                    <label class="btn btn-primary rounded">
+                        <input type="radio" name="role" id="helper" value="helper"> I want to help!
+                    </label>
+                    <label class="btn btn-primary rounded">
+                        <input type="radio" name="role" id="farmer" value="farmer"> I am a farmer!
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row" id="farmer-fields" style="display:none">
+                <div class="container-fluid">
+                    {% include 'form_farmer.html' %}
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row" id="helper-fields" style="display:none">
+                <div class="container-fluid">
+                    {% include 'form_helper.html' %}
+                </div>
+            </div>
+        </div>
+            <div class="row" id="farms"></div>
     </div>
-
-    <div id="farmer-fields" style="display:none">
-         {% include 'form_farmer.html' %}
-    </div>
-
-    <div id="helper-fields" style="display:none">
-        {% include 'form_helper.html' %}
-    </div>
-
-    <div id="farms"></div>
-
 {% endblock %}
 
 {%  block scripts %}

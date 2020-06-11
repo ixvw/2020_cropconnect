@@ -10,11 +10,11 @@ from wtforms.compat import string_types
 
 class FarmerForm(FlaskForm):
     farmerlocation = StringField("Where is your farm?", validators=[InputRequired()])
-    help = StringField("What do you need with?")
+    help = StringField("Help needed?")
     details = StringField("Additional details")
-    when = StringField("When do you need help?")
+    when = StringField("When?")
     phone = StringField("Phone number")
-    email = EmailField("Your E-Mail address?")
+    email = EmailField("My E-Mail?")
 
     # hidden fields: used to get data from places API and store it in db
     formatted_address = HiddenField()

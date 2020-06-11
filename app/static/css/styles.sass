@@ -8,6 +8,12 @@ $green: #008837
   font-weight: bold
   padding: 0.8rem 2rem
 
+.btn-primary.focus
+  box-shadow: 0 0 0 0 rgba(38,143,255,.5)
+
+.btn-primary:not(:disabled):not(.disabled).active:focus
+  box-shadow: 0 0 0 0 rgba(38,143,255,.5)
+
 .btn-primary:not(:disabled):not(.disabled).active
   background-color: grey
   border-color: grey
@@ -15,13 +21,28 @@ $green: #008837
 .btn-primary:hover
   background-color: grey
 
+.btn:focus
+  z-index: 0
+
 .btn-group-toggle
   align-content: center
+  box-shadow: 0 0 0 0
+
+.btn-nohov-noclick:hover
+  background-color: #008837
+
+.btn-nohov-noclick:not(:disabled):not(.disabled):active
+  background-color: #008837
+
+.row
+  margin-top: 0.8rem
+
 
 .navbar
   border-bottom: #008837
   border-bottom-width: 4px
   border-bottom-style: solid
+  margin-bottom: 3rem
 
 .navbar-brand
   align-content: flex-start
@@ -34,6 +55,8 @@ input
   border-color: $green
   border-style: solid
   border-width: 0.5px
+  max-width: 100%
+  max-height: 100%
 
 
 body
