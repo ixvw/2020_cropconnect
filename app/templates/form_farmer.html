@@ -4,52 +4,57 @@
     <form method="POST">
         {{ farmerform.csrf_token() }}
         {{ wtf.form_errors(farmerform, hiddens="only") }}
-        <div class="row">
-            <div class="col-lg mx-auto">
+        <div class="row row-grid">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.farmerlocation.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
             </div>
-            <div class="col-lg mx-auto">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.farmerlocation }}
             </div>
-            <div class="col-lg mx-auto">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.help.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
             </div>
-            <div class="col-lg mx-auto">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.help }}
 
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg mx-auto">
+        <div class="row row-grid">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.details.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
             </div>
-            <div class="col-lg mx-auto">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.details }}
             </div>
-            <div class="col-lg mx-auto">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.when.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
             </div>
-            <div class="col-lg mx-auto">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.when }}
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg mx-auto">
+        <div class="row row-grid">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.phone.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
             </div>
-            <div class="col-lg mx-auto">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.phone }}
             </div>
-            <div class="col-lg mx-auto">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.email.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
             </div>
-            <div class="col-lg mx-auto">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.email }}
             </div>
         </div>
-        <div class="row">
-            <div class="mx-auto">
+        <div class="row row-grid">
+            <div class="col-lg-4 mx-auto d-flex align-items-stretch">
                 {{ farmerform.farmerSubmit(class="btn btn-primary") }}
+            </div>
+        </div>
+        <div class="row row-grid row-no-margin">
+            <div class="col-lg-4 mx-auto d-flex align-items-stretch align-content-center">
+                You will need to confirm your email address!
             </div>
         </div>
         <div class="details">

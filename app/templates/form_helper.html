@@ -1,20 +1,20 @@
 {% import 'bootstrap/form.html' as wtf %}
 
 {% block content %}
-<div class="container-fluid">
-    <form method="post">
-        {{ helperform.csrf_token() }}
-        {{ wtf.form_errors(helperform, hiddens="only") }}
-        <div class="row">
-            <div class="col-lg-4 mx-auto">
-                {{ helperform.helperlocation.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
-            </div>
-            <div class="col-lg-4 mx-auto">
-                {{ helperform.helperlocation }}
-            </div>
+<form method="post">
+    {{ helperform.csrf_token() }}
+    {{ wtf.form_errors(helperform, hiddens="only") }}
+    <div class="row row-grid justify-content-md-center">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4 mx-auto d-flex align-items-stretch">
+            {{ helperform.helperlocation.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
         </div>
-    </form>
-</div>
+        <div class="col-lg-4 mx-auto d-flex align-items-stretch">
+            {{ helperform.helperlocation }}
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</form>
 {% endblock %}
 
 <!--

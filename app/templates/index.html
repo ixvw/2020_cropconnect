@@ -9,30 +9,22 @@
         <div class="container">
             <div class="row">
                 <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
-                    <label class="btn btn-primary rounded">
+                    <label class="btn btn-primary btn-toggle rounded btn-toggle-left-spacing">
                         <input type="radio" name="role" id="helper" value="helper"> I want to help!
                     </label>
-                    <label class="btn btn-primary rounded">
+                    <label class="btn btn-primary btn-toggle rounded btn-toggle-right-spacing">
                         <input type="radio" name="role" id="farmer" value="farmer"> I am a farmer!
                     </label>
                 </div>
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="row" id="farmer-fields" style="display:none">
-                <div class="container-fluid">
-                    {% include 'form_farmer.html' %}
-                </div>
-            </div>
+        <div class="container-fluid" id="farmer-fields" style="display:none">
+            {% include 'form_farmer.html' %}
         </div>
-        <div class="container-fluid">
-            <div class="row" id="helper-fields" style="display:none">
-                <div class="container-fluid">
+        <div class="container-fluid" id="helper-fields" style="display:none">
                     {% include 'form_helper.html' %}
-                </div>
-            </div>
         </div>
-            <div class="row" id="farms"></div>
+        <div class="container-fluid" id="farms"></div>
     </div>
 {% endblock %}
 
@@ -50,11 +42,13 @@
             if ($('input[value="helper"]').is(':checked')) {
                 $('#helper-fields').show();
                 $('#farmer-fields').hide();
+                $('#farms').hide()
                 // console.log("user clicked on: I want to help!")
             }
             else if ($('input[value="farmer"]').is(':checked')) {
                 $('#farmer-fields').show();
                 $('#helper-fields').hide();
+                $('#farms').hide()
                 // console.log("user clicked on: I am a farmer!")
             }
         });
@@ -65,6 +59,7 @@
                 // console.log(result)
                 $.ajax("{{ url_for('farms') }}?lat="+result.geometry.location.lat()+"&lng="+result.geometry.location.lng()).done(function (reply) {
                     $('#farms').html(reply);
+                    $('#farms').show()
                     // console.log("helper entered a location")
                 });
             });

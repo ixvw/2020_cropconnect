@@ -9,12 +9,12 @@ from wtforms.compat import string_types
 
 
 class FarmerForm(FlaskForm):
-    farmerlocation = StringField("Where is your farm?", validators=[InputRequired()])
+    farmerlocation = StringField("Where is your farm?", render_kw={"placeholder": "start typing..."}, validators=[InputRequired()])
     help = StringField("Help needed?")
     details = StringField("Additional details")
     when = StringField("When?")
     phone = StringField("Phone number")
-    email = EmailField("My E-Mail?")
+    email = EmailField("My email:")
 
     # hidden fields: used to get data from places API and store it in db
     formatted_address = HiddenField()
@@ -25,7 +25,7 @@ class FarmerForm(FlaskForm):
 
 
 class HelperForm(FlaskForm):
-    helperlocation = StringField("Where do you live?", validators=[InputRequired()])
+    helperlocation = StringField("Where do you live?", render_kw={"placeholder": "start typing..."}, validators=[InputRequired()])
 
     helperSubmit = SubmitField("Submit")
 
