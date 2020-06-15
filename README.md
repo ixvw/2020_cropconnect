@@ -16,5 +16,6 @@ flask run
 Description on how to deploy the app goes here...
 
 ## Who do I talk to?
-- Martin Baldinger (development) (martin.baldinger@gmail.com)
-- ?? (deployment) (???@???.??)
+- Martin Baldinger (development) (martin.baldinger[@]gmail.com)
+- Nicolas Peslerbe (deployment) (nicolas[@]peslerbe.com)
+- Maxime Marchionno (maxime.marchionno[@]protonmail.com)
