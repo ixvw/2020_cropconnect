@@ -66,9 +66,9 @@ def validate_email():
             if form.verificationCode.data == verificationCode:
                 farm.verified = True
                 db.session.commit()
-                return("verification successful!")
+                return render_template("verified.html", verificationresult=_("verification successful!"))
             else:
-                return("Wrong verification code!")
+                return render_template("verified.html", verificationresult=_("Wrong verification code!"))
 
 
         return render_template('verification.html', form=form)
@@ -81,10 +81,10 @@ def validate_email():
         if farm.verificationCode == getParamVerification:
             farm.verified = True
             db.session.commit()
-            return ("verification successful!")
+            return render_template("verified.html", verificationresult=_("verification successful!"))
 
         else:
-            return ("Wrong verification code!")
+            return render_template("verified.html", verificationresult=_("Something went wrong...! Try again"))
 
 
 @app.route('/farms', methods=['GET', 'POST'])
