@@ -12,7 +12,7 @@ def sendgridMail(verificationCode, idToValidate, toEmail):
         subject='Cropconnect Verficiation Code',
         html_content="Your cropconnect verification code is: {} <br>"
                      "or click the link: "
-                     "http://localhost:5000/validate_email?validationId={}&"
+                     "http://cropconnect.ch/validate_email?validationId={}&"
                      "verification={}".format(verificationCode, idToValidate, verificationCode))
 
     try:
