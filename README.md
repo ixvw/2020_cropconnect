@@ -22,6 +22,8 @@ pybabel extract -F babel.cfg -k _l -o messages.pot .
 this file "messages.pot" does not need to be included in the repo! It is just an intermediate result
 
 Now generate translations for each supported language (de, it, fr)
+
+/!\ this command overwrites your old translations! I.e. make sure you have saved them elsewhere if you want to reuse.
 ```
 pybabel init -i messages.pot -d app/translations -l de
 pybabel init -i messages.pot -d app/translations -l fr
