@@ -1,17 +1,17 @@
 {% for farm in farms %}
     <div class="row row-farms farm-list">
         <div class="col-lg-4 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-nohov-noclick btn-block">{{ farm.help }}</button>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">{{ farm.help }}</button>
         </div>
         <div class="col-lg-3 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }}">{{ farm.ZipCity }}</button>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">{{ farm.ZipCity }}</button>
 
         </div>
         <div class="col-lg-3 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#detail_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="detail_{{ farm.id }}">Additional Details</button>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">Additional Details</button>
         </div>
         <div class="col-lg-2 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="contact_{{ farm.id }}">Contact</button>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">Contact</button>
 
         </div>
     </div>
