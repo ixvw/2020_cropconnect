@@ -34,5 +34,5 @@ class HelperForm(FlaskForm):
 
 
 class VerficationForm(FlaskForm):
-    verificationCode = StringField(_l("Verification Code"))
+    verificationCode = StringField(_l("Please enter the verification code we sent to your E-Mail address"))
     submit = SubmitField(_l("Verify!"))
