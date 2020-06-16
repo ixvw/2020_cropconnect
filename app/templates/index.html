@@ -4,8 +4,24 @@
     <!--
     How to show radio buttons as button group:
     https://getbootstrap.com/docs/4.5/components/buttons/#checkbox-and-radio-buttons
+    <div class="container-fluid" id="instructions-beginning">
+      Hey! Welcome to CropConnect ! who are you ? Please select an option below! <br />
+    </div>
     -->
+
     <div class="container-fluid">
+
+      <div class="container" id="instructions-beginning" style="text-align: center">
+          <p>
+              Welcome to CropConnect! &nbsp; Who are you? &nbsp; Please select an option!
+          </p>
+      </div>
+      <div class="container" id="instructions-beginning-disappear" style="display:none; text-align: center">
+          <p>
+            &nbsp;
+          </p>
+      </div>
+
         <div class="container">
             <div class="row">
                 <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
@@ -19,6 +35,9 @@
             </div>
         </div>
         <div class="container-fluid" id="farmer-fields" style="display:none">
+            <p style="text-align: center">
+                If you are a farmer and you need help, please fill the form below!
+            </p>
             {% include 'form_farmer.html' %}
         </div>
         <div class="container-fluid" id="helper-fields" style="display:none">
@@ -42,13 +61,17 @@
             if ($('input[value="helper"]').is(':checked')) {
                 $('#helper-fields').show();
                 $('#farmer-fields').hide();
-                $('#farms').hide()
+                $('#farms').hide();
+                $('#instructions-beginning').hide() /*added instructions*/
+                $('#instructions-beginning-disappear').show()
                 // console.log("user clicked on: I want to help!")
             }
             else if ($('input[value="farmer"]').is(':checked')) {
                 $('#farmer-fields').show();
                 $('#helper-fields').hide();
-                $('#farms').hide()
+                $('#farms').hide();
+                $('#instructions-beginning').hide(); /*added instructions*/
+                $('#instructions-beginning-disappear').show()
                 // console.log("user clicked on: I am a farmer!")
             }
         });
@@ -66,4 +89,3 @@
     });
     </script>
 {% endblock %}
-

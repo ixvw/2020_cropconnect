@@ -14,7 +14,7 @@ class FarmerForm(FlaskForm):
     details = StringField("Additional details")
     when = StringField("When?")
     phone = StringField("Phone number")
-    email = EmailField("My email:")
+    email = EmailField("Email:")
 
     # hidden fields: used to get data from places API and store it in db
     formatted_address = HiddenField()
