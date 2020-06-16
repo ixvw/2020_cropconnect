@@ -1,0 +1,26 @@
+{% import 'bootstrap/form.html' as wtf %}
+
+{% block content %}
+<form method="post">
+    {{ helperform.csrf_token() }}
+    {{ wtf.form_errors(helperform, hiddens="only") }}
+    <div class="row row-grid justify-content-md-center">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4 mx-auto d-flex align-items-stretch">
+            {{ helperform.helperlocation.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
+        </div>
+        <div class="col-lg-4 mx-auto d-flex align-items-stretch">
+            {{ helperform.helperlocation }}
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</form>
+{% endblock %}
+
+<!--
+Docs for google places autocomplete address field
+-> using the wrapper "geocomplete":
+https://ubilabs.github.io/geocomplete/
+
+/!\ autocomplete is added to the field in index.html
+-->

@@ -1,0 +1,61 @@
+{% from 'bootstrap/utils.html' import render_static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+
+            <!-- CropConnect css -->
+            {{ render_static('css', 'css/styles.css') }}
+            {{ render_static('css', 'css/framework/framework.css') }}
+        {% endblock %}
+
+        <title>CropConnect, Connecting Farmers to Enthousiastic Individuals</title>
+    {% endblock %}
+</head>
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">
+            <img src="/static/img/logo.svg" height="50" class="d-inline-block align-top" alt="">
+        </a>
+        <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/about">About</a>
+            </div>
+        </div>
+    </nav>
+    {% block content %}{% endblock %}
+    <div class="container container-footer-line">
+
+    </div>
+
+    <div class="container container-footer-text">
+      © CropConnect 2020
+    </div>
+
+</div>
+
+{% block scripts %}
+    <!-- Optional JavaScript -->
+    {{ bootstrap.load_js() }}
+
+    <script src="http://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDSjI667dlhTG_PU_2tyTrmD0ZvHxTY6mo"></script>
+    <script src="static/js/jquery.geocomplete.js"></script>
+
+{% endblock %}
+
+</body>
+</html>
