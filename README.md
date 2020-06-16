@@ -15,6 +15,7 @@ flask run
 ## Multilanguage Support
 Note: below commands should be executed in a terminal opened in the project root folder (i.e. where main.py is)
 
+### Initialization
 Using flask-babel: First get all the strings that need to be translated (marked using _() in templates and python code)
 ```
 pybabel extract -F babel.cfg -k _l -o messages.pot .
@@ -29,12 +30,22 @@ pybabel init -i messages.pot -d app/translations -l de
 pybabel init -i messages.pot -d app/translations -l fr
 pybabel init -i messages.pot -d app/translations -l it
 ```
-once you made the translations, compile to usable files:
+once you made the translations in the .po files, compile to usable files (.mo):
 ```
 pybabel compile -d app/translations compiling catalog app/translations/de/LC_MESSAGES/messages.po to app/translations/de/LC_MESSAGES/messages.mo
-
 pybabel compile -d app/translations compiling catalog app/translations/it/LC_MESSAGES/messages.po to app/translations/it/LC_MESSAGES/messages.mo
-
+pybabel compile -d app/translations compiling catalog app/translations/fr/LC_MESSAGES/messages.po to app/translations/fr/LC_MESSAGES/messages.mo
+```
+### Update Translatons
+to update the .po files (i.e. if you want to keep your previous work), use the following commands to update
+```
+pybabel extract -F babel.cfg -k _l -o messages.pot .
+pybabel update -i messages.pot -d app/translations
+```
+do your translation work and then update the .mo files just like before:
+```
+pybabel compile -d app/translations compiling catalog app/translations/de/LC_MESSAGES/messages.po to app/translations/de/LC_MESSAGES/messages.mo
+pybabel compile -d app/translations compiling catalog app/translations/it/LC_MESSAGES/messages.po to app/translations/it/LC_MESSAGES/messages.mo
 pybabel compile -d app/translations compiling catalog app/translations/fr/LC_MESSAGES/messages.po to app/translations/fr/LC_MESSAGES/messages.mo
 ```
 
