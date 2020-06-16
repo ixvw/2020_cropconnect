@@ -8,10 +8,10 @@
 
         </div>
         <div class="col-lg-3 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">Additional Details</button>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">{{ _("Additional Details") }}</button>
         </div>
         <div class="col-lg-2 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">Contact</button>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">{{ _("Contact") }}</button>
 
         </div>
     </div>
@@ -29,7 +29,7 @@
         <div class="card card-body" id="contact_{{ farm.id }}">
             E-Mail: {{ farm.email }}
             <br>
-            Phone: {{ farm.phone }}
+            {{ _("Phone") }}: {{ farm.phone }}
         </div>
     </div>
 {% endfor %}

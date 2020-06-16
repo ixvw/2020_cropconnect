@@ -13,6 +13,13 @@ from geopy import distance
 
 from app.util.orm import orm_object_as_dict
 
+from app import babel
+from flask_babel import _
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -79,7 +86,6 @@ def validate_email():
         else:
             return ("Wrong verification code!")
 
-    return("farmer provided his data -> ask him to validate his email. idToValidate = {}".format(messages))
 
 @app.route('/farms', methods=['GET', 'POST'])
 def farms():
@@ -120,6 +126,7 @@ def farms():
         return render_template("farms.html", farms=farms)
 
     return("uups - something went wrong")
+
 
 @app.route('/about', methods=['GET', 'POST'])
 def about():

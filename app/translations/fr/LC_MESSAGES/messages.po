@@ -1,0 +1,150 @@
+# French translations for PROJECT.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-06-16 19:42+0200\n"
+"PO-Revision-Date: 2020-06-16 19:42+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+#: app/forms.py:15
+msgid "Where is your farm?"
+msgstr ""
+
+#: app/forms.py:15 app/forms.py:31
+msgid "start typing..."
+msgstr ""
+
+#: app/forms.py:16
+msgid "Help needed?"
+msgstr ""
+
+#: app/forms.py:17
+msgid "Additional details"
+msgstr ""
+
+#: app/forms.py:18
+msgid "When?"
+msgstr ""
+
+#: app/forms.py:19
+msgid "Phone number"
+msgstr ""
+
+#: app/forms.py:20
+msgid "E-Mail:"
+msgstr ""
+
+#: app/forms.py:27 app/forms.py:33
+msgid "Submit"
+msgstr ""
+
+#: app/forms.py:31
+msgid "Where do you live?"
+msgstr ""
+
+#: app/forms.py:37
+msgid "Verification Code"
+msgstr ""
+
+#: app/forms.py:38
+msgid "Verify!"
+msgstr ""
+
+#: app/templates/about.html:5
+msgid "What's CropConnect ?"
+msgstr ""
+
+#: app/templates/about.html:7
+msgid ""
+"CropConnect is a non-profit platform focused on providing meaningful, "
+"short-term, volunteer farming experiences in your local area. If you are "
+"a farmer in need of help, you can visit our website and post what you "
+"need help with. If you are looking for an active and impactful "
+"experience, you can enter where your location, and we show you all the "
+"farmers from the closest to the furthest. Our goal is to encourage "
+"community support and bring neighbourhoods across the globe closer "
+"together."
+msgstr ""
+
+#: app/templates/about.html:10
+msgid "How to contact CropConnect ?"
+msgstr ""
+
+#: app/templates/about.html:12
+msgid "You can reach CropConnect at"
+msgstr ""
+
+#: app/templates/about.html:15
+msgid "How did we come up with the platform ?"
+msgstr ""
+
+#: app/templates/about.html:17
+msgid ""
+"CropConnect originated from the LauzHack Against Covid19 competition in "
+"April 2020. We met and formed our initial team, including <b>Maxime "
+"Marchionno</b> 💻🍍 (EPFL), <b>Alix Buu-hoang</b> 🃏🍒 (EPFL), <b>Nicole "
+"Shi</b> 🐞🍑 (Carnegie Mellon University, EPFL exchange), and Simon "
+"Duchastel 🎮🍎 (University of Washington, EPFL exchange). We were motivated"
+" to launch this platform because of the seasonal worker shortage from the"
+" coronavirus and <b>Nicolas Peslerbe 💻🌶 </b> (Alumni-EPFL) have since "
+"joined and made instrumental contributions."
+msgstr ""
+
+#: app/templates/base.html:20
+msgid "CropConnect, Connecting Farmers to Enthousiastic Individuals"
+msgstr ""
+
+#: app/templates/farms.html:11
+msgid "Additional Details"
+msgstr ""
+
+#: app/templates/farms.html:14
+msgid "Contact"
+msgstr ""
+
+#: app/templates/farms.html:32
+msgid "Phone"
+msgstr ""
+
+#: app/templates/index.html:16
+msgid ""
+"Welcome to CropConnect! &nbsp; Who are you? &nbsp; Please select an "
+"option!"
+msgstr ""
+
+#: app/templates/index.html:29
+msgid "I want to help!"
+msgstr ""
+
+#: app/templates/index.html:32
+msgid "I am a farmer!"
+msgstr ""
+
+#: app/templates/index.html:39
+msgid "If you are a farmer and you need help, please fill the form below!"
+msgstr ""
+
+#: app/util/sendgridMail.py:14
+msgid "Cropconnect Verficiation Code"
+msgstr ""
+
+#: app/util/sendgridMail.py:15
+#, python-format
+msgid ""
+"Your cropconnect verification code is: %(vericode)s <br>or click the "
+"link: "
+"http://cropconnect.ch/validate_email?validationId=%(idToValidate)s&verification=%(vericode)s"
+msgstr ""
+

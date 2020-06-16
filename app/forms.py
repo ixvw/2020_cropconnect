@@ -7,29 +7,32 @@ from wtforms.validators import DataRequired, Optional, InputRequired, Email, Sto
 from wtforms import widgets
 from wtforms.compat import string_types
 
+from flask_babel import _
+from flask_babel import lazy_gettext as _l
+
 
 class FarmerForm(FlaskForm):
-    farmerlocation = StringField("Where is your farm?", render_kw={"placeholder": "start typing..."}, validators=[InputRequired()])
-    help = StringField("Help needed?")
-    details = StringField("Additional details")
-    when = StringField("When?")
-    phone = StringField("Phone number")
-    email = EmailField("Email:")
+    farmerlocation = StringField(_l("Where is your farm?"), render_kw={"placeholder": _l("start typing...")}, validators=[InputRequired()])
+    help = StringField(_l("Help needed?"))
+    details = StringField(_l("Additional details"))
+    when = StringField(_l("When?"))
+    phone = StringField(_l("Phone number"))
+    email = EmailField(_l("E-Mail:"))
 
     # hidden fields: used to get data from places API and store it in db
     formatted_address = HiddenField()
     lat = HiddenField()
     lng = HiddenField()
 
-    farmerSubmit = SubmitField("Submit")
+    farmerSubmit = SubmitField(_l("Submit"))
 
 
 class HelperForm(FlaskForm):
-    helperlocation = StringField("Where do you live?", render_kw={"placeholder": "start typing..."}, validators=[InputRequired()])
+    helperlocation = StringField(_l("Where do you live?"), render_kw={"placeholder": _l("start typing...")}, validators=[InputRequired()])
 
-    helperSubmit = SubmitField("Submit")
+    helperSubmit = SubmitField(_l("Submit"))
 
 
 class VerficationForm(FlaskForm):
-    verificationCode = StringField("Verification Code")
-    submit = SubmitField("Verify!")
+    verificationCode = StringField(_l("Verification Code"))
+    submit = SubmitField(_l("Verify!"))
