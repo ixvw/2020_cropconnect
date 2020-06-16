@@ -20,7 +20,7 @@ msgstr ""
 
 #: app/forms.py:15
 msgid "Where is your farm?"
-msgstr ""
+msgstr "Où est votre ferme ?"
 
 #: app/forms.py:15 app/forms.py:31
 msgid "start typing..."
@@ -80,15 +80,15 @@ msgstr ""
 
 #: app/templates/about.html:10
 msgid "How to contact CropConnect ?"
-msgstr ""
+msgstr "Comment contacter CropConnect ?"
 
 #: app/templates/about.html:12
 msgid "You can reach CropConnect at"
-msgstr ""
+msgstr "Vous pouvez contacter CropConnect à"
 
 #: app/templates/about.html:15
 msgid "How did we come up with the platform ?"
-msgstr ""
+msgstr "Comment sommes-nous arrivés avec cette plateforme ?"
 
 #: app/templates/about.html:17
 msgid ""
@@ -104,19 +104,19 @@ msgstr ""
 
 #: app/templates/base.html:20
 msgid "CropConnect, Connecting Farmers to Enthousiastic Individuals"
-msgstr ""
+msgstr "CropConnect fait la connection entre les fermiers et les enthousiastes !"
 
 #: app/templates/farms.html:11
 msgid "Additional Details"
-msgstr ""
+msgstr "Détails"
 
 #: app/templates/farms.html:14
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #: app/templates/farms.html:32
 msgid "Phone"
-msgstr ""
+msgstr "Téléphone"
 
 #: app/templates/index.html:16
 msgid ""
@@ -126,19 +126,19 @@ msgstr ""
 
 #: app/templates/index.html:29
 msgid "I want to help!"
-msgstr ""
+msgstr "J'aimerais aider !"
 
 #: app/templates/index.html:32
 msgid "I am a farmer!"
-msgstr ""
+msgstr "Je suis un fermier !"
 
 #: app/templates/index.html:39
 msgid "If you are a farmer and you need help, please fill the form below!"
-msgstr ""
+msgstr "Si vous êtes un fermier and vous avez besoin d'aide, merci de remplir le question ci-dessous!"
 
 #: app/util/sendgridMail.py:14
 msgid "Cropconnect Verficiation Code"
-msgstr ""
+msgstr "Cropconnect Code de Vérification"
 
 #: app/util/sendgridMail.py:15
 #, python-format
@@ -147,4 +147,3 @@ msgid ""
 "link: "
 "http://cropconnect.ch/validate_email?validationId=%(idToValidate)s&verification=%(vericode)s"
 msgstr ""
-
