@@ -14,6 +14,7 @@ flask run
 
 ## Multilanguage Support
 Note: below commands should be executed in a terminal opened in the project root folder (i.e. where main.py is)
+Important: Activate the virtualenv you use for the project first!
 
 ### Initialization
 Using flask-babel: First get all the strings that need to be translated (marked using _() in templates and python code)

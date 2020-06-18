@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-16 19:42+0200\n"
+"POT-Creation-Date: 2020-06-18 19:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,11 +54,23 @@ msgid "Where do you live?"
 msgstr ""
 
 #: app/forms.py:37
-msgid "Verification Code"
+msgid "Please enter the verification code we sent to your E-Mail address"
 msgstr ""
 
 #: app/forms.py:38
 msgid "Verify!"
+msgstr ""
+
+#: app/routes.py:69 app/routes.py:84
+msgid "verification successful!"
+msgstr ""
+
+#: app/routes.py:71
+msgid "Wrong verification code!"
+msgstr ""
+
+#: app/routes.py:87
+msgid "Something went wrong...! Try again"
 msgstr ""
 
 #: app/templates/about.html:5
@@ -101,7 +113,7 @@ msgid ""
 "joined and made instrumental contributions."
 msgstr ""
 
-#: app/templates/base.html:20
+#: app/templates/base.html:19
 msgid "CropConnect, Connecting Farmers to Enthousiastic Individuals"
 msgstr ""
 
