@@ -1,17 +1,17 @@
 {% for farm in farms %}
     <div class="row row-farms farm-list">
         <div class="col-lg-4 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">{{ farm.help }}</button>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}, #delete_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}, #delete_{{ farm.id }}">{{ farm.help }}</button>
         </div>
         <div class="col-lg-3 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">{{ farm.ZipCity }}</button>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}, #delete_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}, #delete_{{ farm.id }}">{{ farm.ZipCity }}</button>
 
         </div>
         <div class="col-lg-3 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">{{ _("Additional Details") }}</button>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}, #delete_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}, #delete_{{ farm.id }}">{{ _("Additional Details") }}</button>
         </div>
         <div class="col-lg-2 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}">{{ _("Contact") }}</button>
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }},#detail_{{ farm.id }},#contact_{{ farm.id }}, #delete_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }},detail_{{ farm.id }},contact_{{ farm.id }}, #delete_{{ farm.id }}">{{ _("Contact") }}</button>
 
         </div>
     </div>
@@ -32,9 +32,13 @@
             {{ _("Phone") }}: {{ farm.phone }}
         </div>
     </div>
+    <div class="collapse" id="delete_{{ farm.id }}">
+        <div class="card card-body" id="delete_{{ farm.id }}">
+            <a href="deletion?farmid={{ farm.id }}" class="btn btn-link" role="button">{{ _("I want to delete my listing") }}</a>
+        </div>
+    </div>
 {% endfor %}
 
-<script>
 
 
 </script>

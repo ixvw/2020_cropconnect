@@ -7,7 +7,7 @@ from app.forms import *
 
 from app.database import db, Farm
 
-from app.util.sendgridMail import sendgridMail
+from app.util.sendgridMail import sendgridMail, sendgridMailDeletion
 
 from geopy import distance
 
@@ -70,7 +70,6 @@ def validate_email():
             else:
                 return render_template("verified.html", verificationresult=_("Wrong verification code!"))
 
-
         return render_template('verification.html', form=form)
 
     else:
@@ -131,3 +130,66 @@ def farms():
 @app.route('/about', methods=['GET', 'POST'])
 def about():
     return render_template("about.html")
+
+
+@app.route("/deletion", methods=["GET", "POST"])
+def deletion():
+    idToDelete = request.args.get("farmid", None)
+
+    farm = Farm().query.filter(Farm.id == idToDelete).first()
+
+    # create deletionId and deletionCode
+    deletionCode = randint(100000, 999999)
+    farm.deletionCode = deletionCode
+
+    deletionId = str(uuid.uuid4())
+    farm.deletionId = deletionId
+
+    db.session.commit()
+
+    # send to user via e-mail
+    sendgridMailDeletion(deletionCode, deletionId, farm.email)
+
+    # redirect
+    return redirect("deletefarm?farmid="+idToDelete)
+
+
+@app.route("/deletefarm", methods=["GET", "POST"])
+def deletefarm():
+    idToDelete = request.args.get("farmid", None)
+    getParamValidation = request.args.get("deletionId", None)
+    getParamVerification = request.args.get("deletionCode", None)
+
+    if getParamValidation is None:
+        # getParam is None if user did not come via delete link in email, thus ask to type deletion code
+        farm = Farm().query.filter(Farm.id == idToDelete).first()
+
+        deletionCode = farm.deletionCode
+
+        form = FarmDeletionVerificationForm()
+
+        if form.validate_on_submit():
+            if form.verificationCode.data == deletionCode:
+                db.session.delete(farm)
+                db.session.commit()
+                return render_template("verified.html", verificationresult=_("farm deleted successfully!"))
+            else:
+                return render_template("verified.html", verificationresult=_("Wrong verification code!"))
+
+        return render_template('verification.html', form=form)
+
+    else:
+        # getParam is not None, i.e. user clicked on deletion link in email -> delete farm
+        # success, display an error if not found
+        farm = Farm().query.filter(Farm.deletionId == getParamValidation).first()
+
+        if farm is None:
+            return render_template("verified.html", verificationresult=_("farm not found! Probably it was already deleted"))
+
+        if farm.deletionCode == getParamVerification:
+            db.session.delete(farm)
+            db.session.commit()
+            return render_template("verified.html", verificationresult=_("farm deleted successfully!"))
+
+        else:
+            return render_template("verified.html", verificationresult=_("Something went wrong...! Try again"))

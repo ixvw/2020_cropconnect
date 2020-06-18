@@ -26,3 +26,23 @@ def sendgridMail(verificationCode, idToValidate, toEmail):
     except Exception as e:
         print(e)
         print(e.body)
+
+def sendgridMailDeletion(deletionCode, deletionId, toEmail):
+    message = Mail(
+        from_email='hello@cropconnect.world ',
+        to_emails=toEmail,
+        subject=_("Cropconnect Farm Deletion Code"),
+        html_content=_("Your cropconnect farm deletion code is: %(vericode)s <br>"
+                     "or click the link: "
+                     "http://cropconnect.ch/deletefarm?deletionId=%(idToValidate)s&"
+                     "deletionCode=%(vericode)s", vericode=deletionCode, idToValidate=deletionId))
+
+    try:
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+    except Exception as e:
+        print(e)
+        print(e.body)

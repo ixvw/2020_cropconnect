@@ -21,3 +21,7 @@ class Farm(db.Model):
     verificationCode = db.Column(db.String)
     verified = db.Column(db.Boolean, default=False)
 
+    # verified deletion
+    deletionId = db.Column(db.String)
+    deletionCode = db.Column(db.String)
+
