@@ -17,7 +17,7 @@ from app.util.allowedImg import allowedImg
 from app import babel
 from flask_babel import _
 
-from werkzeug.utils import secure_filename
+# from werkzeug.utils import secure_filename
 
 import os
 
@@ -34,9 +34,25 @@ def index():
 
     if farmerform.validate_on_submit():
         if farmerform.farmerlocation.data != "":
-            farm = Farm(email=farmerform.email.data, formatted_address=farmerform.formatted_address.data,
+            # check provided img before storing it!
+            print(farmerform.photo.data.filename)
+            filename = farmerform.photo.data.filename
+
+            farmimgsdir = os.path.join(os.path.dirname(app.instance_path), "farmimgs")
+
+            if filename is not None:
+                if allowedImg(filename):
+                    farmerform.photo.data.save(os.path.join(farmimgsdir, filename))
+                else:
+                    flash(_("The file you want to upload does not seem to be an image"))
+
+                farm = Farm(email=farmerform.email.data, formatted_address=farmerform.formatted_address.data,
                         help=farmerform.help.data, details=farmerform.details.data, when=farmerform.when.data,
-                        phone=farmerform.phone.data, lat=farmerform.lat.data, lng=farmerform.lng.data)
+                        phone=farmerform.phone.data, lat=farmerform.lat.data, lng=farmerform.lng.data, imgname=filename)
+            else:
+                farm = Farm(email=farmerform.email.data, formatted_address=farmerform.formatted_address.data,
+                            help=farmerform.help.data, details=farmerform.details.data, when=farmerform.when.data,
+                            phone=farmerform.phone.data, lat=farmerform.lat.data, lng=farmerform.lng.data)
 
             verificationCode = randint(100000, 999999)
             farm.verificationCode = verificationCode
@@ -199,26 +215,6 @@ def deletefarm():
 
         else:
             return render_template("verified.html", verificationresult=_("Something went wrong...! Try again"))
-
-
-# documentation here: https://www.roytuts.com/upload-and-display-image-using-python-flask/
-@app.route('/uploadimg', methods=['POST'])
-def upload_image():
-    if 'file' not in request.files:
-        flash('No file part')
-        return redirect(request.url)
-    file = request.files['file']
-    if file.filename == '':
-        flash('No image selected for uploading')
-        return redirect(request.url)
-    if file and allowedImg(file.filename):
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        flash('Image successfully uploaded and displayed')
-        return render_template('upload.html', filename=filename)
-    else:
-        flash('Allowed image types are -> png, jpg, jpeg, gif')
-        return redirect(request.url)
 
 
 @app.route('/display/<filename>')

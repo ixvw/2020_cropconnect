@@ -1,11 +1,12 @@
 from flask_wtf import FlaskForm
 
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, SelectField, IntegerField, RadioField, \
-    TextAreaField, FloatField, HiddenField
+from wtforms import StringField, SubmitField, HiddenField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired, Optional, InputRequired, Email, StopValidation
 from wtforms import widgets
 from wtforms.compat import string_types
+
+from flask_wtf.file import FileField
 
 from flask_babel import _
 from flask_babel import lazy_gettext as _l
@@ -18,6 +19,8 @@ class FarmerForm(FlaskForm):
     when = StringField(_l("When?"))
     phone = StringField(_l("Phone number"))
     email = EmailField(_l("E-Mail:"))
+    exchange = StringField(_("in exchange for"))
+    photo = FileField(_("Photo"))
 
     # hidden fields: used to get data from places API and store it in db
     formatted_address = HiddenField()
