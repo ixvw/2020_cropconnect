@@ -227,3 +227,8 @@ def utility_processor():
         return imgPath(filename)
     return dict(imgPathJinja=imgPathJinja)
 
+# used to display the img out of farmimgs folder in static
+@app.route('/display/<filename>')
+def display_image(filename):
+    return redirect(url_for('static', filename='farmimgs/' + filename), code=301)
+
