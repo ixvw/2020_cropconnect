@@ -15,6 +15,7 @@ class Farm(db.Model):
     when = db.Column(db.String)
     phone = db.Column(db.String)
     email = db.Column(db.String)
+    imgname = db.Column(db.String)
 
     # verification
     validationId = db.Column(db.String)

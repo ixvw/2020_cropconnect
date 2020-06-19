@@ -1,5 +1,5 @@
 from app import app
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, flash, render_template, redirect, url_for, request
 from random import randint
 import uuid
 
@@ -12,9 +12,15 @@ from app.util.sendgridMail import sendgridMail, sendgridMailDeletion
 from geopy import distance
 
 from app.util.orm import orm_object_as_dict
+from app.util.allowedImg import allowedImg
 
 from app import babel
 from flask_babel import _
+
+from werkzeug.utils import secure_filename
+
+import os
+
 
 @babel.localeselector
 def get_locale():
@@ -193,3 +199,29 @@ def deletefarm():
 
         else:
             return render_template("verified.html", verificationresult=_("Something went wrong...! Try again"))
+
+
+# documentation here: https://www.roytuts.com/upload-and-display-image-using-python-flask/
+@app.route('/uploadimg', methods=['POST'])
+def upload_image():
+    if 'file' not in request.files:
+        flash('No file part')
+        return redirect(request.url)
+    file = request.files['file']
+    if file.filename == '':
+        flash('No image selected for uploading')
+        return redirect(request.url)
+    if file and allowedImg(file.filename):
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        flash('Image successfully uploaded and displayed')
+        return render_template('upload.html', filename=filename)
+    else:
+        flash('Allowed image types are -> png, jpg, jpeg, gif')
+        return redirect(request.url)
+
+
+@app.route('/display/<filename>')
+def display_image(filename):
+    return redirect(url_for('static', filename='farmimgs/' + filename), code=301)
+
