@@ -26,7 +26,8 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                 <img src="{{ url_for('display_image', filename=farm.imgname) }}" class="img-fluid img-farm rounded mx-auto d-block" alt="Responsive image">
+                {{ url_for("farmimgs") }}
+                 <img src="{{ imgPathJinja(farm.imgname) }}" class="img-fluid img-farm rounded mx-auto d-block" alt="Responsive image">
             </div>
         </div>
     </div>

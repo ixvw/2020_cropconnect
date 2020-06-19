@@ -17,7 +17,9 @@ from app.util.allowedImg import allowedImg
 from app import babel
 from flask_babel import _
 
-# from werkzeug.utils import secure_filename
+from app.util.imgPath import imgPath
+
+from werkzeug.utils import secure_filename
 
 import os
 
@@ -34,15 +36,13 @@ def index():
 
     if farmerform.validate_on_submit():
         if farmerform.farmerlocation.data != "":
-            # check provided img before storing it!
-            print(farmerform.photo.data.filename)
-            filename = farmerform.photo.data.filename
 
-            farmimgsdir = os.path.join(os.path.dirname(app.instance_path), "farmimgs")
+            filename = secure_filename(farmerform.photo.data.filename)
 
             if filename is not None:
+                # check provided img before storing it!
                 if allowedImg(filename):
-                    farmerform.photo.data.save(os.path.join(farmimgsdir, filename))
+                    farmerform.photo.data.save(imgPath(filename))
                 else:
                     flash(_("The file you want to upload does not seem to be an image"))
 
@@ -217,7 +217,13 @@ def deletefarm():
             return render_template("verified.html", verificationresult=_("Something went wrong...! Try again"))
 
 
-@app.route('/display/<filename>')
-def display_image(filename):
-    return redirect(url_for('static', filename='farmimgs/' + filename), code=301)
+
+
+# currently unused, since imgs are stored and saved in /static
+@app.context_processor
+def utility_processor():
+    def imgPathJinja(filename):
+        print(imgPath(filename))
+        return imgPath(filename)
+    return dict(imgPathJinja=imgPathJinja)
 
