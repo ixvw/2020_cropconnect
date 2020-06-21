@@ -32,6 +32,7 @@ def get_locale():
 @app.route('/', methods=['GET', 'POST'])
 def index():
     farmerform = FarmerForm()
+    farmerform.validate()
     helperform = HelperForm()
 
     if farmerform.validate_on_submit():
