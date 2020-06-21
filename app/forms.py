@@ -14,12 +14,12 @@ from flask_babel import lazy_gettext as _l
 
 class FarmerForm(FlaskForm):
     farmerlocation = StringField(_l("Where is your farm?"), render_kw={"placeholder": _l("start typing...")}, validators=[InputRequired()])
-    help = StringField(_l("Help needed?"))
-    details = StringField(_l("Additional details"))
-    when = StringField(_l("When?"))
-    phone = StringField(_l("Phone number"))
-    email = EmailField(_l("E-Mail:"))
-    exchange = StringField(_("in exchange for"))
+    help = StringField(_l("Help needed?"), validators=[InputRequired()])
+    details = StringField(_l("Additional details"), validators=[InputRequired()])
+    when = StringField(_l("When?"), validators=[InputRequired()])
+    phone = StringField(_l("Phone number"), validators=[InputRequired()])
+    email = EmailField(_l("E-Mail:"), validators=[InputRequired()])
+    exchange = StringField(_("in exchange for"), validators=[InputRequired()])
     photo = FileField(_("Photo"))
 
     # hidden fields: used to get data from places API and store it in db
