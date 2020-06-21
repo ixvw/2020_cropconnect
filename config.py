@@ -6,3 +6,5 @@ class Config(object):
     SQLALCHEMY_DATABASE_URI = "sqlite:///db/data.sqlite"
     LANGUAGES = ["en", "it", "fr", "de"]
     ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+    FARMIMGPATH = "resources/farmimgs/"
+    FLASK_ADMIN_SWATCH = "cerulean"
