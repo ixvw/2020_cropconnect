@@ -1,6 +1,7 @@
 {% import 'bootstrap/form.html' as wtf %}
 
 <div class="container">
+
     <form method="POST"enctype="multipart/form-data">
         {{ farmerform.csrf_token() }}
         {{ wtf.form_errors(farmerform, hiddens="only") }}
@@ -88,4 +89,25 @@ https://ubilabs.github.io/geocomplete/
 /!\ autocomplete is added to the field in index.html
 -->
 
+<!-- Regex for CH phone number format
+^(\+?)(\d{2,4})(\s?)(\-?)((\(0\))?)(\s?)(\d{2})(\s?)(\-?)(\d{3})(\s?)(\-?)(\d{2})(\s?)(\-?)(\d{2})
+-->
+
+<script>
+    function phonenumber(inputtxt)
+    {
+        var phoneno = /^\d{10}$/;
+        if(inputtxt.value.match(phoneno))
+        {
+            return true;
+        }
+        else
+        {
+            alert("Not a valid Phone Number");
+            return false;
+        }
+    }
+
+
+</script>
 

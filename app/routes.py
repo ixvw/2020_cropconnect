@@ -46,35 +46,35 @@ def index():
     if farmerform.validate_on_submit():
         if farmerform.farmerlocation.data != "":
 
-            filename = secure_filename(farmerform.photo.data.filename)
+                    filename = secure_filename(farmerform.photo.data.filename)
 
-            if filename is not None:
-                # check provided img before storing it!
-                if allowedImg(filename):
-                    farmerform.photo.data.save(imgPath(filename))
-                else:
-                    flash(_("The file you want to upload does not seem to be an image"))
+                    if filename is not None:
+                        # check provided img before storing it!
+                        if allowedImg(filename):
+                            farmerform.photo.data.save(imgPath(filename))
+                        else:
+                            flash(_("The file you want to upload does not seem to be an image"))
 
-                farm = Farm(email=farmerform.email.data, formatted_address=farmerform.formatted_address.data,
-                        help=farmerform.help.data, details=farmerform.details.data, when=farmerform.when.data,
-                        phone=farmerform.phone.data, lat=farmerform.lat.data, lng=farmerform.lng.data, imgname=filename)
-            else:
-                farm = Farm(email=farmerform.email.data, formatted_address=farmerform.formatted_address.data,
-                            help=farmerform.help.data, details=farmerform.details.data, when=farmerform.when.data,
-                            phone=farmerform.phone.data, lat=farmerform.lat.data, lng=farmerform.lng.data)
+                        farm = Farm(email=farmerform.email.data, formatted_address=farmerform.formatted_address.data,
+                                help=farmerform.help.data, details=farmerform.details.data, when=farmerform.when.data,
+                                phone=farmerform.phone.data, lat=farmerform.lat.data, lng=farmerform.lng.data, imgname=filename)
+                    else:
+                        farm = Farm(email=farmerform.email.data, formatted_address=farmerform.formatted_address.data,
+                                    help=farmerform.help.data, details=farmerform.details.data, when=farmerform.when.data,
+                                    phone=farmerform.phone.data, lat=farmerform.lat.data, lng=farmerform.lng.data)
 
-            verificationCode = randint(100000, 999999)
-            farm.verificationCode = verificationCode
+                    verificationCode = randint(100000, 999999)
+                    farm.verificationCode = verificationCode
 
-            idToValidate = str(uuid.uuid4())
-            farm.validationId = idToValidate
+                    idToValidate = str(uuid.uuid4())
+                    farm.validationId = idToValidate
 
-            db.session.add(farm)
-            db.session.commit()
+                    db.session.add(farm)
+                    db.session.commit()
 
-            sendgridMail(verificationCode, idToValidate, farmerform.email.data)
+                    sendgridMail(verificationCode, idToValidate, farmerform.email.data)
 
-            return redirect(url_for("validate_email", messages=idToValidate))
+                    return redirect(url_for("validate_email", messages=idToValidate))
 
     return render_template('index.html', farmerform=farmerform, helperform=helperform)
 
