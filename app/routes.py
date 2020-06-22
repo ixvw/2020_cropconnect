@@ -1,5 +1,5 @@
 from app import app
-from flask import Flask, flash, render_template, redirect, url_for, request
+from flask import Flask, flash, render_template, redirect, url_for, request, abort
 from random import randint
 import uuid
 
@@ -21,12 +21,20 @@ from app.util.imgPath import imgPath
 
 from werkzeug.utils import secure_filename
 
-import os
+from app import login
 
+from flask_login import login_user, current_user
+
+from app.database import User
 
 @babel.localeselector
 def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -218,6 +226,25 @@ def deletefarm():
             return render_template("verified.html", verificationresult=_("Something went wrong...! Try again"))
 
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect("/admin")
+
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=form.username.data).first()
+
+        if user is None or not user.check_password(form.password.data):
+            flash('Invalid username or password')
+            return redirect(url_for('login'))
+
+        login_user(user)
+
+        return redirect("/admin")
+
+    return render_template('adminlogin.html', form=form)
 
 
 # currently unused, since imgs are stored and saved in /static
