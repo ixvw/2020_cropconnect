@@ -86,6 +86,22 @@
                     // console.log("helper entered a location")
                 });
             });
+        $cf = $('#phone');
+        $error = $("#phone-status")
+        $cf.blur(function(e){
+            phone = $(this).val();
+            phone = phone.replace(/[^0-9]/g,'');
+            if (phone.length != 12)
+            {
+                if (phone.length != 10)
+                {
+                    $cf.val('');
+                    $error.show()
+                    $cf.focus();
+                }
+            }
+        });
     });
+
     </script>
 {% endblock %}

@@ -62,6 +62,9 @@
                 {{ farmerform.email }}
             </div>
         </div>
+        <div id="phone-status" class="text-center" style="display: none;">
+                {{ _("Please provide a valid Swiss phone number: +41 79 799 99 99 or 079 999 99 99") }}
+        </div>
         <div class="row row-grid">
             <div class="col-lg-4 mx-auto d-flex align-items-stretch">
                 {{ farmerform.farmerSubmit(class="btn btn-primary") }}
@@ -93,19 +96,5 @@ https://ubilabs.github.io/geocomplete/
 ^(\+?)(\d{2,4})(\s?)(\-?)((\(0\))?)(\s?)(\d{2})(\s?)(\-?)(\d{3})(\s?)(\-?)(\d{2})(\s?)(\-?)(\d{2})
 -->
 
-<script>
-    function phonenumber(inputtxt)
-    {
-        var phoneno = /^\d{10}$/;
-        if(inputtxt.value.match(phoneno))
-        {
-            return true;
-        }
-        else
-        {
-            alert("Not a valid Phone Number");
-            return false;
-        }
-    }
-</script>
+
 
