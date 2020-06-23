@@ -14,7 +14,7 @@ from flask_babel import lazy_gettext as _l
 
 class FarmerForm(FlaskForm):
     farmerlocation = StringField(_l("Where is your farm?"), render_kw={"placeholder": _l("start typing...")}, validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
-    help = StringField(_l("Help needed?"), validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
+    help = StringField(_l("Help needed?????"), validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
     details = StringField(_l("Additional details"), validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
     when = StringField(_l("When?"), validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
     phone = StringField(_l("Phone number"), validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
@@ -51,4 +51,3 @@ class LoginForm(FlaskForm):
     password = PasswordField(_("Password"))
 
     submit = SubmitField(_l("Login!"))
-
