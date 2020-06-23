@@ -25,9 +25,9 @@ def sendgridMail(verificationCode, idToValidate, toEmail):
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
-        print(response.status_code)
-        print(response.body)
-        print(response.headers)
+        # print(response.status_code)
+        # print(response.body)
+        # print(response.headers)
     except Exception as e:
         print(e)
         print(e.body)
@@ -41,6 +41,23 @@ def sendgridMailDeletion(deletionCode, deletionId, toEmail):
                      "or click the link: "
                      "http://cropconnect.ch/deletefarm?deletionId=%(idToValidate)s&"
                      "deletionCode=%(vericode)s", vericode=deletionCode, idToValidate=deletionId))
+
+    try:
+        sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
+        response = sg.send(message)
+        # print(response.status_code)
+        # print(response.body)
+        # print(response.headers)
+    except Exception as e:
+        print(e)
+        print(e.body)
+
+def sendgridMailReport(idToReport):
+    message = Mail(
+        from_email='hello@cropconnect.world',
+        to_emails='hello@cropconnect.world',
+        subject="Cropconnect Farm REPORTED: " + idToReport,
+        html_content="The farm {} seems to be abusing cropconnect. Better check it out!".format(idToReport))
 
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))

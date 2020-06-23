@@ -7,7 +7,7 @@ from app.forms import *
 
 from app.database import db, Farm
 
-from app.util.sendgridMail import sendgridMail, sendgridMailDeletion
+from app.util.sendgridMail import sendgridMail, sendgridMailDeletion, sendgridMailReport
 
 from geopy import distance
 
@@ -196,6 +196,16 @@ def deletion():
 
     # redirect
     return redirect("deletefarm?farmid="+idToDelete)
+
+@app.route("/report", methods=["GET", "POST"])
+def report():
+    idToReport = request.args.get("farmid", None)
+
+    # send report to cropconnect
+    sendgridMailReport(idToReport)
+
+    return render_template("reported.html", reportresult=_("Thank you - we will check the ad in question and act "
+                                                           "accordingly"))
 
 
 @app.route("/deletefarm", methods=["GET", "POST"])
