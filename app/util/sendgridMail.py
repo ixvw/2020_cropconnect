@@ -55,16 +55,16 @@ def sendgridMailDeletion(deletionCode, deletionId, toEmail):
 def sendgridMailReport(idToReport):
     message = Mail(
         from_email='hello@cropconnect.world',
-        to_emails='hello@cropconnect.world',
+        to_emails='cropconnext@gmail.com',
         subject="Cropconnect Farm REPORTED: " + idToReport,
         html_content="The farm {} seems to be abusing cropconnect. Better check it out!".format(idToReport))
 
     try:
         sg = SendGridAPIClient(os.environ.get('SENDGRID_API_KEY'))
         response = sg.send(message)
-        # print(response.status_code)
-        # print(response.body)
-        # print(response.headers)
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
     except Exception as e:
         print(e)
         print(e.body)
