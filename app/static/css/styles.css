@@ -6,6 +6,11 @@
   margin: 0;
 }
 
+.btn-warning {
+  background-color: #CEE7DA;
+  border-color: #CEE7DA;
+}
+
 .btn-toggle-left-spacing {
   margin-right: 0.925rem;
 }
