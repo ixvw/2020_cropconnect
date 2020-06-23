@@ -40,9 +40,9 @@ def load_user(id):
 
 @app.route('/reboot_python', methods=['GET', 'POST'])
 def rebootserver():
-if environ['mod_wsgi.process_group'] != '':
-    import signal, os
-    os.kill(os.getpid(), signal.SIGINT)
+    if environ['mod_wsgi.process_group'] != '':
+        import signal, os
+        os.kill(os.getpid(), signal.SIGINT)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
