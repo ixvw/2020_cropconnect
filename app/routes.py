@@ -29,6 +29,10 @@ from app.database import User
 
 import os
 
+#for the reboot_python
+import signal, os.environ
+
+
 @babel.localeselector
 def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
@@ -41,7 +45,6 @@ def load_user(id):
 @app.route('/reboot_python', methods=['GET', 'POST'])
 def rebootserver():
     if environ['mod_wsgi.process_group'] != '':
-        import signal, os
         os.kill(os.getpid(), signal.SIGINT)
 
 @app.route('/', methods=['GET', 'POST'])
