@@ -9,6 +9,6 @@ class Config(object):
     ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
     FARMIMGPATH = "resources/farmimgs/"
     FLASK_ADMIN_SWATCH = "cerulean"
-    LOCAL = "True"
+    LOCAL = "False"
 
 

@@ -42,7 +42,7 @@ def load_user(id):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     farmerform = FarmerForm()
-    farmerform.validate()
+    # farmerform.validate()
     helperform = HelperForm()
 
     if farmerform.validate_on_submit():
