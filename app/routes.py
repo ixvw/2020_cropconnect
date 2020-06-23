@@ -7,7 +7,7 @@ from app.forms import *
 
 from app.database import db, Farm
 
-from app.util.sendgridMail import sendgridMail, sendgridMailDeletion, sendgridMailReport
+from app.util.sendgridMail import sendgridMail, sendgridMailDeletion
 
 from geopy import distance
 
@@ -38,11 +38,16 @@ def get_locale():
 def load_user(id):
     return User.query.get(int(id))
 
+@app.route('/reboot_python', methods=['GET', 'POST'])
+def rebootserver():
+if environ['mod_wsgi.process_group'] != '':
+    import signal, os
+    os.kill(os.getpid(), signal.SIGINT)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     farmerform = FarmerForm()
-    # farmerform.validate()
+    farmerform.validate()
     helperform = HelperForm()
 
     if farmerform.validate_on_submit():
@@ -197,16 +202,6 @@ def deletion():
     # redirect
     return redirect("deletefarm?farmid="+idToDelete)
 
-@app.route("/report", methods=["GET", "POST"])
-def report():
-    idToReport = request.args.get("farmid", None)
-
-    # send report to cropconnect
-    sendgridMailReport(idToReport)
-
-    return render_template("reported.html", reportresult=_("Thank you - we will check the ad in question and act "
-                                                           "accordingly"))
-
 
 @app.route("/deletefarm", methods=["GET", "POST"])
 def deletefarm():
@@ -282,4 +277,3 @@ def utility_processor():
 @app.route('/display/<filename>')
 def display_image(filename):
     return redirect(url_for('static', filename='farmimgs/' + filename), code=301)
-
