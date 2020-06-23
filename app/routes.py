@@ -58,8 +58,9 @@ def index():
                 if allowedImg(filename):
                     uniquename = str(uuid.uuid4())
                     ext = os.path.splitext(filename)[1]
+                    filename = uniquename+ext
                     print("ext: {}".format(ext))
-                    farmerform.photo.data.save(app.root_path + "/"+imgPath(uniquename+ext))
+                    farmerform.photo.data.save(app.root_path + "/"+imgPath(filename))
                 else:
                     flash(_("The file you want to upload does not seem to be an image"))
 
