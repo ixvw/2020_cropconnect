@@ -26,9 +26,11 @@
                 </div>
             </div>
             <div class="col-lg-4">
-                <img src="{{ url_for('display_image', filename=farm.imgname) }}" class="img-fluid img-farm rounded mx-auto d-block" alt="Responsive image">
-                <!-- in production we might have to use the code below? -->
-                <img src="{{ imgPathJinja(farm.imgname) }}" class="img-fluid img-farm rounded mx-auto d-block" alt="">
+                {% if debug %}
+                    <img src="{{ url_for('display_image', filename=farm.imgname) }}" class="img-fluid img-farm rounded mx-auto d-block" alt="">
+                {% else %}
+                    <img src="/{{ imgPathJinja(farm.imgname) }}" class="img-fluid img-farm rounded mx-auto d-block" alt="">
+                {% endif %}
             </div>
         </div>
     </div>
