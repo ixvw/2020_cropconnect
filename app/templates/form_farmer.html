@@ -1,7 +1,8 @@
 {% import 'bootstrap/form.html' as wtf %}
 
 <div class="container">
-    <form method="POST">
+
+    <form method="POST"enctype="multipart/form-data">
         {{ farmerform.csrf_token() }}
         {{ wtf.form_errors(farmerform, hiddens="only") }}
         <div class="row row-grid">
@@ -31,6 +32,20 @@
             </div>
             <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.when }}
+            </div>
+        </div>
+        <div class="row row-grid">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
+                {{ farmerform.exchange.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
+            </div>
+            <div class="col-lg mx-auto d-flex align-items-stretch">
+                {{ farmerform.exchange }}
+            </div>
+            <div class="col-lg mx-auto d-flex align-items-stretch">
+                {{ farmerform.photo.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
+            </div>
+            <div class="col-lg mx-auto d-flex align-items-stretch">
+                {{ farmerform.photo }}
             </div>
         </div>
         <div class="row row-grid">
@@ -73,3 +88,24 @@ https://ubilabs.github.io/geocomplete/
 
 /!\ autocomplete is added to the field in index.html
 -->
+
+<!-- Regex for CH phone number format
+^(\+?)(\d{2,4})(\s?)(\-?)((\(0\))?)(\s?)(\d{2})(\s?)(\-?)(\d{3})(\s?)(\-?)(\d{2})(\s?)(\-?)(\d{2})
+-->
+
+<script>
+    function phonenumber(inputtxt)
+    {
+        var phoneno = /^\d{10}$/;
+        if(inputtxt.value.match(phoneno))
+        {
+            return true;
+        }
+        else
+        {
+            alert("Not a valid Phone Number");
+            return false;
+        }
+    }
+</script>
+
