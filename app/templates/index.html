@@ -13,12 +13,12 @@
 
       <div class="container" id="instructions-beginning" style="text-align: center">
           <p>
-              {{ _("Welcome to CropConnect! &nbsp; Who are you? &nbsp; Please select an option!") }}
+              {{ _(" CropConnect is a plateform linking people willing to help and farmers. &nbsp; Please select an option!") }}
           </p>
       </div>
       <div class="container" id="instructions-beginning-disappear" style="display:none; text-align: center">
           <p>
-            &nbsp;
+            {{ _(" CropConnect is a plateform linking people willing to help and farmers. ") }}
           </p>
       </div>
 
@@ -29,14 +29,14 @@
                         <input type="radio" name="role" id="helper" value="helper"> {{ _("I want to help!") }}
                     </label>
                     <label class="btn btn-primary btn-toggle rounded btn-toggle-right-spacing">
-                        <input type="radio" name="role" id="farmer" value="farmer"> {{ _("I am a farmer!") }}
+                        <input type="radio" name="role" id="farmer" value="farmer"> {{ _("I am seeking help!") }}
                     </label>
                 </div>
             </div>
         </div>
         <div class="container-fluid" id="farmer-fields" style="display:none">
             <p style="text-align: center">
-                {{ _("If you are a farmer and you need help, please fill the form below!") }}
+                {{ _("Please fill the form below!") }}
             </p>
             {% include 'form_farmer.html' %}
         </div>
