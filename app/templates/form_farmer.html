@@ -1,7 +1,8 @@
 {% import 'bootstrap/form.html' as wtf %}
 
 <div class="container">
-    <form method="POST">
+
+    <form method="POST"enctype="multipart/form-data">
         {{ farmerform.csrf_token() }}
         {{ wtf.form_errors(farmerform, hiddens="only") }}
         <div class="row row-grid">
@@ -35,6 +36,20 @@
         </div>
         <div class="row row-grid">
             <div class="col-lg mx-auto d-flex align-items-stretch">
+                {{ farmerform.exchange.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
+            </div>
+            <div class="col-lg mx-auto d-flex align-items-stretch">
+                {{ farmerform.exchange }}
+            </div>
+            <div class="col-lg mx-auto d-flex align-items-stretch">
+                {{ farmerform.photo.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
+            </div>
+            <div class="col-lg mx-auto d-flex align-items-stretch">
+                {{ farmerform.photo }}
+            </div>
+        </div>
+        <div class="row row-grid">
+            <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.phone.label(class="btn btn-primary btn-nohov-noclick btn-block") }}
             </div>
             <div class="col-lg mx-auto d-flex align-items-stretch">
@@ -46,6 +61,9 @@
             <div class="col-lg mx-auto d-flex align-items-stretch">
                 {{ farmerform.email }}
             </div>
+        </div>
+        <div id="phone-status" class="text-center" style="display: none;">
+                {{ _("Please provide a valid Swiss phone number: +41 79 799 99 99 or 079 999 99 99") }}
         </div>
         <div class="row row-grid">
             <div class="col-lg-4 mx-auto d-flex align-items-stretch">
@@ -73,3 +91,10 @@ https://ubilabs.github.io/geocomplete/
 
 /!\ autocomplete is added to the field in index.html
 -->
+
+<!-- Regex for CH phone number format
+^(\+?)(\d{2,4})(\s?)(\-?)((\(0\))?)(\s?)(\d{2})(\s?)(\-?)(\d{3})(\s?)(\-?)(\d{2})(\s?)(\-?)(\d{2})
+-->
+
+
+

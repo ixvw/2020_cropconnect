@@ -14,10 +14,9 @@
 
             <!-- CropConnect css -->
             {{ render_static('css', 'css/styles.css') }}
-            {{ render_static('css', 'css/framework/framework.css') }}
         {% endblock %}
 
-        <title>CropConnect, Connecting Farmers to Enthousiastic Individuals</title>
+        <title>{{ _("CropConnect, Connecting Farmers to Enthousiastic Individuals") }}</title>
     {% endblock %}
 </head>
 <body>
@@ -31,9 +30,9 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="/about">About</a>
+            <div class="navbar-nav ml-auto">
+                <a class="nav-item nav-link" href="/">{{ ("Home") }} <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="/about">{{ ("About") }}</a>
             </div>
         </div>
     </nav>
