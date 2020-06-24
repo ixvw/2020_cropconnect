@@ -1,44 +1,40 @@
 {% for farm in farms %}
     <div class="row row-farms farm-list">
-        <div class="col-lg-8 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#collapse_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="collapse_{{ farm.id }}">{{ farm.help }}</button>
-        </div>
         <div class="col-lg-4 d-flex align-items-stretch">
-            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#collapse_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="collapse_{{ farm.id }}">{{ farm.ZipCity }}</button>
+            <button type="button" class="btn btn-primary btn-nohov-noclick btn-block">{{ farm.help }}</button>
+        </div>
+        <div class="col-lg-3 d-flex align-items-stretch">
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#address_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="address_{{ farm.id }}">{{ farm.ZipCity }}</button>
+
+        </div>
+        <div class="col-lg-3 d-flex align-items-stretch">
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#detail_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="detail_{{ farm.id }}">Additional Details</button>
+        </div>
+        <div class="col-lg-2 d-flex align-items-stretch">
+            <button type="button" class="btn btn-primary btn-block" data-toggle="collapse" href="#contact_{{ farm.id }}" role="button" aria-expanded="false" aria-controls="contact_{{ farm.id }}">Contact</button>
+
         </div>
     </div>
-    <div class="collapse" id="collapse_{{ farm.id }}">
-        <div class="row">
-            <div class="col-lg-8">
-                <div class="card card-body" id="address_{{ farm.id }}">
-                    {{ farm.formatted_address }}
-                </div>
-                <div class="card card-body" id="detail_{{ farm.id }}">
-                    {{ farm.details }}
-                </div>
-                <div class="card card-body" id="contact_{{ farm.id }}">
-                    E-Mail: {{ farm.email }}
-                    <br>
-                    {{ _("Phone") }}: {{ farm.phone }}
-                </div>
-            </div>
-            <div class="col-lg-4">
-                {% if debug %}
-                    <img src="{{ url_for('display_image', filename=farm.imgname) }}" class="img-fluid img-farm rounded mx-auto d-block" alt="">
-                {% else %}
-                    <img src="/{{ imgPathJinja(farm.imgname) }}" class="img-fluid img-farm rounded mx-auto d-block" alt="">
-                {% endif %}
-                <div class="card card-body" id="delete_{{ farm.id }}">
-                    <a href="deletion?farmid={{ farm.id }}" class="btn btn-warning btn-block" role="button">{{ _("I want to delete my listing") }}</a>
-                </div>
-                <div class="card card-body" id="report_{{ farm.id }}">
-                    <a href="report?farmid={{ farm.id }}" class="btn btn-warning btn-block" role="button">{{ _("Report abuse!") }}</a>
-                </div>
-            </div>
+    <div class="collapse" id="address_{{ farm.id }}">
+        <div class="card card-body" id="address_{{ farm.id }}">
+            {{ farm.formatted_address }}
+        </div>
+    </div>
+    <div class="collapse" id="detail_{{ farm.id }}">
+        <div class="card card-body" id="detail_{{ farm.id }}">
+            {{ farm.details }}
+        </div>
+    </div>
+    <div class="collapse" id="contact_{{ farm.id }}">
+        <div class="card card-body" id="contact_{{ farm.id }}">
+            E-Mail: {{ farm.email }}
+            <br>
+            Phone: {{ farm.phone }}
         </div>
     </div>
 {% endfor %}
 
+<script>
 
 
 </script>
