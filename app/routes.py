@@ -1,5 +1,5 @@
 from app import app
-from flask import Flask, flash, render_template, redirect, url_for, request, abort
+from flask import Flask, render_template, redirect, url_for, request
 from random import randint
 import uuid
 
@@ -7,78 +7,23 @@ from app.forms import *
 
 from app.database import db, Farm
 
-from app.util.sendgridMail import sendgridMail, sendgridMailDeletion
+from app.util.sendgridMail import sendgridMail
 
 from geopy import distance
 
 from app.util.orm import orm_object_as_dict
-from app.util.allowedImg import allowedImg
 
-from app import babel
-from flask_babel import _
-
-from app.util.imgPath import imgPath
-
-from werkzeug.utils import secure_filename
-
-from app import login
-
-from flask_login import login_user, current_user
-
-from app.database import User
-
-import os
-
-#for the reboot_python
-import signal
-
-
-@babel.localeselector
-def get_locale():
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
-
-
-@login.user_loader
-def load_user(id):
-    return User.query.get(int(id))
-
-@app.route('/reboot_python', methods=['GET', 'POST'])
-def rebootserver():
-    if os.environ['mod_wsgi.process_group'] != '':
-        os.kill(os.getpid(), signal.SIGINT)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     farmerform = FarmerForm()
-    farmerform.validate()
     helperform = HelperForm()
 
     if farmerform.validate_on_submit():
         if farmerform.farmerlocation.data != "":
-
-            try:
-                filename = secure_filename(farmerform.photo.data.filename)
-            except:
-                filename = None
-
-            if filename is not None:
-                # check provided img before storing it!
-                if allowedImg(filename):
-                    uniquename = str(uuid.uuid4())
-                    ext = os.path.splitext(filename)[1]
-                    filename = uniquename+ext
-                    print("ext: {}".format(ext))
-                    farmerform.photo.data.save(app.root_path + "/"+imgPath(filename))
-                else:
-                    flash(_("The file you want to upload does not seem to be an image"))
-
-                farm = Farm(email=farmerform.email.data, formatted_address=farmerform.formatted_address.data,
-                                help=farmerform.help.data, details=farmerform.details.data, when=farmerform.when.data,
-                                phone=farmerform.phone.data, lat=farmerform.lat.data, lng=farmerform.lng.data, imgname=filename)
-            else:
-                farm = Farm(email=farmerform.email.data, formatted_address=farmerform.formatted_address.data,
-                                    help=farmerform.help.data, details=farmerform.details.data, when=farmerform.when.data,
-                                    phone=farmerform.phone.data, lat=farmerform.lat.data, lng=farmerform.lng.data)
+            farm = Farm(email=farmerform.email.data, formatted_address=farmerform.formatted_address.data,
+                        help=farmerform.help.data, details=farmerform.details.data, when=farmerform.when.data,
+                        phone=farmerform.phone.data, lat=farmerform.lat.data, lng=farmerform.lng.data)
 
             verificationCode = randint(100000, 999999)
             farm.verificationCode = verificationCode
@@ -114,9 +59,10 @@ def validate_email():
             if form.verificationCode.data == verificationCode:
                 farm.verified = True
                 db.session.commit()
-                return render_template("verified.html", verificationresult=_("verification successful!"))
+                return("verification successful!")
             else:
-                return render_template("verified.html", verificationresult=_("Wrong verification code!"))
+                return("Wrong verification code!")
+
 
         return render_template('verification.html', form=form)
 
@@ -128,11 +74,12 @@ def validate_email():
         if farm.verificationCode == getParamVerification:
             farm.verified = True
             db.session.commit()
-            return render_template("verified.html", verificationresult=_("verification successful!"))
+            return ("verification successful!")
 
         else:
-            return render_template("verified.html", verificationresult=_("Something went wrong...! Try again"))
+            return ("Wrong verification code!")
 
+    return("farmer provided his data -> ask him to validate his email. idToValidate = {}".format(messages))
 
 @app.route('/farms', methods=['GET', 'POST'])
 def farms():
@@ -170,113 +117,10 @@ def farms():
         # sort farms from nearest to farthest
         farms = sorted(farmlist, key=lambda k: k["distance"])
 
-        debug = False
-        if app.config["LOCAL"] == "True":
-            debug = True
-
-        return render_template("farms.html", farms=farms, debug=debug)
+        return render_template("farms.html", farms=farms)
 
     return("uups - something went wrong")
-
 
 @app.route('/about', methods=['GET', 'POST'])
 def about():
     return render_template("about.html")
-
-
-@app.route("/deletion", methods=["GET", "POST"])
-def deletion():
-    idToDelete = request.args.get("farmid", None)
-
-    farm = Farm().query.filter(Farm.id == idToDelete).first()
-
-    # create deletionId and deletionCode
-    deletionCode = randint(100000, 999999)
-    farm.deletionCode = deletionCode
-
-    deletionId = str(uuid.uuid4())
-    farm.deletionId = deletionId
-
-    db.session.commit()
-
-    # send to user via e-mail
-    sendgridMailDeletion(deletionCode, deletionId, farm.email)
-
-    # redirect
-    return redirect("deletefarm?farmid="+idToDelete)
-
-
-@app.route("/deletefarm", methods=["GET", "POST"])
-def deletefarm():
-    idToDelete = request.args.get("farmid", None)
-    getParamValidation = request.args.get("deletionId", None)
-    getParamVerification = request.args.get("deletionCode", None)
-
-    if getParamValidation is None:
-        # getParam is None if user did not come via delete link in email, thus ask to type deletion code
-        farm = Farm().query.filter(Farm.id == idToDelete).first()
-
-        deletionCode = farm.deletionCode
-
-        form = FarmDeletionVerificationForm()
-
-        if form.validate_on_submit():
-            if form.verificationCode.data == deletionCode:
-                db.session.delete(farm)
-                db.session.commit()
-                return render_template("verified.html", verificationresult=_("farm deleted successfully!"))
-            else:
-                return render_template("verified.html", verificationresult=_("Wrong verification code!"))
-
-        return render_template('verification.html', form=form)
-
-    else:
-        # getParam is not None, i.e. user clicked on deletion link in email -> delete farm
-        # success, display an error if not found
-        farm = Farm().query.filter(Farm.deletionId == getParamValidation).first()
-
-        if farm is None:
-            return render_template("verified.html", verificationresult=_("farm not found! Probably it was already deleted"))
-
-        if farm.deletionCode == getParamVerification:
-            db.session.delete(farm)
-            db.session.commit()
-            return render_template("verified.html", verificationresult=_("farm deleted successfully!"))
-
-        else:
-            return render_template("verified.html", verificationresult=_("Something went wrong...! Try again"))
-
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if current_user.is_authenticated:
-        return redirect("/admin")
-
-    form = LoginForm()
-
-    if form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-
-        if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
-            return redirect(url_for('login'))
-
-        login_user(user)
-
-        return redirect("/admin")
-
-    return render_template('adminlogin.html', form=form)
-
-
-# currently unused, since imgs are stored and saved in /static
-@app.context_processor
-def utility_processor():
-    def imgPathJinja(filename):
-        print(imgPath(filename))
-        return imgPath(filename)
-    return dict(imgPathJinja=imgPathJinja)
-
-# used to display the img out of farmimgs folder in static
-@app.route('/display/<filename>')
-def display_image(filename):
-    return redirect(url_for('static', filename='farmimgs/' + filename), code=301)

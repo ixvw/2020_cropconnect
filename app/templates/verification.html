@@ -2,30 +2,15 @@
 {% import 'bootstrap/form.html' as wtf %}
 
 {% block content %}
-<div class="container">
+<div>
     <form method="POST">
         {{ form.csrf_token() }}
         {{ wtf.form_errors(form, hiddens="only") }}
 
-        <div class="row row-grid">
-            <div class="col-lg mx-auto d-flex align-items-stretch">
-                {{ form.verificationCode.label(class="control-label") }}
-            </div>
-        </div>
+        {{ form.verificationCode }}
+        {{ form.verificationCode.label(class="control-label") }}
 
-        <div class="row row-grid">
-            <div class="col-lg mx-auto d-flex align-items-stretch">
-                {{ form.verificationCode }}
-            </div>
-
-        </div>
-        <div class="row row-grid">
-            <div class="col-lg mx-auto d-flex align-items-stretch">
-            {{ form.submit(class="btn btn-primary") }}
-            </div>
-        </div>
-
-
+        {{ form.submit }}
     </form>
 </div>
 {% endblock %}
