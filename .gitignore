@@ -3,3 +3,4 @@
 /specification/
 /app/static/css/styles.css.map
 /credentials.py
+/__pycache__
