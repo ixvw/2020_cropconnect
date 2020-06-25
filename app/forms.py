@@ -13,13 +13,13 @@ from flask_babel import lazy_gettext as _l
 
 
 class FarmerForm(FlaskForm):
-    farmerlocation = StringField(_l("Where do you need help ?"), render_kw={"placeholder": _l("Start typing...")}, validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
-    help = StringField(_l("What kind of help do you need ?"), render_kw={"placeholder": _l("Harvesting, Planting....")}, validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
-    details = StringField(_l("Additional details"), validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
-    when = StringField(_l("When?"), validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
-    phone = StringField(_l("Phone number"), validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
-    email = EmailField(_l("E-Mail:"), validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus")), Email(message=_l("Bitte geben Sie eine gültige E-Mailadresse an"))])
-    exchange = StringField(_("In exchange of"), validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
+    farmerlocation = StringField(_l("Where do you need help ?"), render_kw={"placeholder": _l("Lausanne, Neuchâtel, Vevey...")}, validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
+    help = StringField(_l("What help do you need ?"), render_kw={"p": _l("Harvesting, Planting....")}, validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
+    details = StringField(_l("Additional details"), render_kw={"p": _l("Good shape, Long Jeans, Boots...")}, validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
+    when = StringField(_l("When?"), render_kw={"p": _l("Good shape, Long Jeans, Boots...")}, validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
+    phone = StringField(_l("Phone number"), render_kw={"p": _l("+41789000000")}, validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
+    email = EmailField(_l("E-Mai:"),  render_kw={"p": _l("hello@cropconnect.world")}, validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus")), Email(message=_l("Bitte geben Sie eine gültige E-Mailadresse an"))])
+    exchange = StringField(_("In exchange of"), render_kw={"p": _l("A basket of vegetables, Some honey, Love...")}, validators=[InputRequired(message=_l("Bitte füllen Sie dieses Feld aus"))])
     photo = FileField(_("Photo"))
 
     # hidden fields: used to get data from places API and store it in db
