@@ -3,11 +3,11 @@
 ## Local testing
 on Windows:
 1. install Python (3.8.x)
-2. open Powershell in project folder (where main.py is)
-3. create virtualenv and activate it
+2. open Powershell in project folder
+3. virtualenv and activate it
 4. run app from Powershell:
 ```
-pip install requirements.txt
+pip install .r requirements.txt
 set FLASK-APP=main.py
 flask run
 ```
@@ -17,7 +17,7 @@ Note: below commands should be executed in a terminal opened in the project root
 Important: Activate the virtualenv you use for the project first!
 
 ### Initialization
-Using flask-babel: First get all the strings that need to be translated (marked using _() in templates and python code)
+Using flask-babel: First get all the strings that need to be translated (marked using {{ _("Texte") }} in templates and python code)
 ```
 pybabel extract -F babel.cfg -k _l -o messages.pot .
 ```

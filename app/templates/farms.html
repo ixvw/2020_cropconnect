@@ -29,10 +29,10 @@
                     <img src="/{{ imgPathJinja(farm.imgname) }}" class="img-fluid img-farm rounded mx-auto d-block" alt="">
                 {% endif %}
                 <div class="card card-body" id="delete_{{ farm.id }}">
-                    <a href="deletion?farmid={{ farm.id }}" class="btn btn-warning btn-block" role="button">{{ _("I want to delete my listing") }}</a>
+                    <a href="deletion?farmid={{ farm.id }}" class="btn btn-warning btn-block" role="button">{{ _("Delete this ad") }}</a>
                 </div>
                 <div class="card card-body" id="report_{{ farm.id }}">
-                    <a href="report?farmid={{ farm.id }}" class="btn btn-warning btn-block" role="button">{{ _("Report abuse!") }}</a>
+                    <a href="report?farmid={{ farm.id }}" class="btn btn-warning btn-block" role="button">{{ _("Report abuse") }}</a>
                 </div>
             </div>
         </div>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-18 19:31+0200\n"
+"POT-Creation-Date: 2020-06-26 01:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,60 +17,137 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.8.0\n"
 
-#: app/forms.py:15
-msgid "Where is your farm?"
-msgstr ""
-
-#: app/forms.py:15 app/forms.py:31
-msgid "start typing..."
+#: app/forms.py:16
+msgid "Where do you need help ?"
 msgstr ""
 
 #: app/forms.py:16
-msgid "Help needed?"
+msgid "Neuchâtel, Aigle..."
+msgstr ""
+
+#: app/forms.py:16 app/forms.py:17 app/forms.py:18 app/forms.py:19
+#: app/forms.py:20 app/forms.py:21 app/forms.py:22
+msgid "Bitte füllen Sie dieses Feld aus"
 msgstr ""
 
 #: app/forms.py:17
+msgid "What help do you need ?"
+msgstr ""
+
+#: app/forms.py:17
+msgid "Harvesting, Planting...."
+msgstr ""
+
+#: app/forms.py:18
 msgid "Additional details"
 msgstr ""
 
 #: app/forms.py:18
+msgid "Good shape, Boots..."
+msgstr ""
+
+#: app/forms.py:19
 msgid "When?"
 msgstr ""
 
 #: app/forms.py:19
-msgid "Phone number"
+msgid "Every Sunday morning"
 msgstr ""
 
 #: app/forms.py:20
+msgid "Phone number"
+msgstr ""
+
+#: app/forms.py:20 app/forms.py:21
+msgid " "
+msgstr ""
+
+#: app/forms.py:21
 msgid "E-Mail:"
 msgstr ""
 
-#: app/forms.py:27 app/forms.py:33
+#: app/forms.py:21
+msgid "Bitte geben Sie eine gültige E-Mailadresse an"
+msgstr ""
+
+#: app/forms.py:22
+msgid "In exchange of"
+msgstr ""
+
+#: app/forms.py:22
+msgid "A basket of vegetables, Some honey, Love..."
+msgstr ""
+
+#: app/forms.py:23
+msgid "Photo"
+msgstr ""
+
+#: app/forms.py:30 app/forms.py:37
 msgid "Submit"
 msgstr ""
 
-#: app/forms.py:31
-msgid "Where do you live?"
+#: app/forms.py:35
+msgid "Where do you live ?"
 msgstr ""
 
-#: app/forms.py:37
-msgid "Please enter the verification code we sent to your E-Mail address"
+#: app/forms.py:35
+msgid "start typing..."
 msgstr ""
 
-#: app/forms.py:38
+#: app/forms.py:41
+msgid "Please enter the verification code we sent to your E-Mail address."
+msgstr ""
+
+#: app/forms.py:42
 msgid "Verify!"
 msgstr ""
 
-#: app/routes.py:69 app/routes.py:84
+#: app/forms.py:46
+msgid "Please enter the verification code we sent to your E-Mail address"
+msgstr ""
+
+#: app/forms.py:47
+msgid "Delete Farm!"
+msgstr ""
+
+#: app/forms.py:50
+msgid "Username"
+msgstr ""
+
+#: app/forms.py:51
+msgid "Password"
+msgstr ""
+
+#: app/forms.py:53
+msgid "Login!"
+msgstr ""
+
+#: app/routes.py:65
+msgid "The file you want to upload does not seem to be an image"
+msgstr ""
+
+#: app/routes.py:109 app/routes.py:123
 msgid "verification successful!"
 msgstr ""
 
-#: app/routes.py:71
+#: app/routes.py:111 app/routes.py:231
 msgid "Wrong verification code!"
 msgstr ""
 
-#: app/routes.py:87
+#: app/routes.py:126 app/routes.py:249
 msgid "Something went wrong...! Try again"
+msgstr ""
+
+#: app/routes.py:207
+msgid "Thank you - we will check the ad in question and act accordingly"
+msgstr ""
+
+#: app/routes.py:229 app/routes.py:246
+msgid "farm deleted successfully!"
+msgstr ""
+
+#: app/routes.py:241
+msgid "farm not found! Probably it was already deleted"
 msgstr ""
 
 #: app/templates/about.html:5
@@ -98,41 +175,55 @@ msgid "You can reach CropConnect at"
 msgstr ""
 
 #: app/templates/about.html:15
-msgid "How did we come up with the platform ?"
+msgid "Who are we ?"
 msgstr ""
 
 #: app/templates/about.html:17
 msgid ""
 "CropConnect originated from the LauzHack Against Covid19 competition in "
-"April 2020. We met and formed our initial team, including <b>Maxime "
-"Marchionno</b> 💻🍍 (EPFL), <b>Alix Buu-hoang</b> 🃏🍒 (EPFL), <b>Nicole "
-"Shi</b> 🐞🍑 (Carnegie Mellon University, EPFL exchange), and Simon "
-"Duchastel 🎮🍎 (University of Washington, EPFL exchange). We were motivated"
-" to launch this platform because of the seasonal worker shortage from the"
-" coronavirus and <b>Nicolas Peslerbe 💻🌶 </b> (Alumni-EPFL) have since "
-"joined and made instrumental contributions."
+"April 2020. We were motivated to launch this platform because of the "
+"seasonal worker shortage from the coronavirus. The team is composed of "
+"<b>Maxime Marchionno</b> 💻🍍(EPFL), <b>Alix Buu-hoang</b> 🃏🍒 (EPFL), "
+"<b>Nicole Shi</b> 🐞🍑 (Carnegie Mellon University, EPFL exchange) and "
+"<b>Nicolas Peslerbe 💻🌶 </b> (Alumni-EPFL).\n"
+"      This project is supported by the EPFL through the YGRANT program. A"
+" huge thanks to them."
 msgstr ""
 
-#: app/templates/base.html:19
+#: app/templates/base.html:28
 msgid "CropConnect, Connecting Farmers to Enthousiastic Individuals"
 msgstr ""
 
-#: app/templates/farms.html:11
-msgid "Additional Details"
-msgstr ""
-
-#: app/templates/farms.html:14
-msgid "Contact"
+#: app/templates/farms.html:22
+msgid "Phone"
 msgstr ""
 
 #: app/templates/farms.html:32
-msgid "Phone"
+msgid "Delete this ad"
+msgstr ""
+
+#: app/templates/farms.html:35
+msgid "Report abuse"
+msgstr ""
+
+#: app/templates/form_farmer.html:66
+msgid ""
+"Please provide a valid Swiss phone number: +41 79 799 99 99 or 079 999 99"
+" 99"
+msgstr ""
+
+#: app/templates/form_farmer.html:75
+msgid "You will have to confirm the email address."
 msgstr ""
 
 #: app/templates/index.html:16
 msgid ""
-"Welcome to CropConnect! &nbsp; Who are you? &nbsp; Please select an "
-"option!"
+" CropConnect is a plateform linking people willing to help and farmers. "
+"&nbsp; Please select an option!"
+msgstr ""
+
+#: app/templates/index.html:21
+msgid " CropConnect is a plateform linking people willing to help and farmers. "
 msgstr ""
 
 #: app/templates/index.html:29
@@ -140,22 +231,34 @@ msgid "I want to help!"
 msgstr ""
 
 #: app/templates/index.html:32
-msgid "I am a farmer!"
+msgid "I am seeking help!"
 msgstr ""
 
 #: app/templates/index.html:39
-msgid "If you are a farmer and you need help, please fill the form below!"
+msgid "To get some help, please fill the form below!"
 msgstr ""
 
-#: app/util/sendgridMail.py:14
+#: app/util/sendgridMail.py:19
 msgid "Cropconnect Verficiation Code"
 msgstr ""
 
-#: app/util/sendgridMail.py:15
+#: app/util/sendgridMail.py:20
 #, python-format
 msgid ""
 "Your cropconnect verification code is: %(vericode)s <br>or click the "
 "link: "
-"http://cropconnect.ch/validate_email?validationId=%(idToValidate)s&verification=%(vericode)s"
+"https://validate_email?validationId=%(idToValidate)s&verification=%(vericode)s"
+msgstr ""
+
+#: app/util/sendgridMail.py:39
+msgid "Cropconnect Farm Deletion Code"
+msgstr ""
+
+#: app/util/sendgridMail.py:40
+#, python-format
+msgid ""
+"Your cropconnect farm deletion code is: %(vericode)s <br>or click the "
+"link: "
+"http://cropconnect.ch/deletefarm?deletionId=%(idToValidate)s&deletionCode=%(vericode)s"
 msgstr ""
 
