@@ -51,7 +51,31 @@ pybabel compile -d app/translations compiling catalog app/translations/fr/LC_MES
 ```
 
 ## Deployment
-Description on how to deploy the app goes here...
+
+Works on version 2.7.
+
+```
+rm -rv
+
+git clone origin-url .
+
+scp .\credentials.py cropconnect@web-centos-1
+```
+
+Logs requests: /etc/httpd/logs/access_log_cropconnect
+
+Errors: /etc/httpd/logs/error_log_cropconnect
+
+
+## Tools
+
+reload : cropconnect.ch/reboot_python
+
+admin back office : cropconnect.ch/admin
+
+
+
+
 
 ## Who do I talk to?
 - Martin Baldinger (development) (martin.baldinger[@]gmail.com)
