@@ -54,13 +54,26 @@ pybabel compile -d app/translations compiling catalog app/translations/fr/LC_MES
 
 Works on version 2.7.
 
+If small changes :
 ```
-rm -rv
 
-git clone origin-url .
 
-scp .\credentials.py cropconnect@web-centos-1
 ```
+
+
+If java script or db changes :
+
+```
+rm -rv (no -f)
+
+git clone https://github.com/ixvw/2020_cropconnect .
+
+scp .\credentials.py cropconnect@cropconnect.ch
+
+```
++ adding resources/ and db/ folders
+
++ RW for resources/ and db/
 
 Logs requests: /etc/httpd/logs/access_log_cropconnect
 

@@ -171,7 +171,7 @@ msgid ""
 "farmers from the closest to the furthest. Our goal is to encourage "
 "community support and bring neighbourhoods across the globe closer "
 "together."
-msgstr ""
+msgstr "CropConnect est une plateforme servant à connecter les particuliers ayant envie d'aider les fermes de la région et les fermiers en besoin de main d'oeuvre. Si vous êtes un fermier, vous pouvez poster votre annonce sur le site, elle sera automatiquement publiée. Si vous êtes un particulier, il vous suffit de chercher dans la liste des fermes disponibles laquelle vous souhaiterez aider. Nous sommes un association à but non-lucratif, notre  but est de connecter les fermiers à des enthousiastes voulant aider. Le fermier peut proposer en échange du travail effectué un panier de fruit et légumes, du miel ou tout autre rétribution. L'échange doit se faire sans argent."
 
 #: app/templates/about.html:10
 msgid "How to contact CropConnect ?"
@@ -194,12 +194,13 @@ msgid ""
 "<b>Nicole Shi</b> 🐞🍑 (Carnegie Mellon University, EPFL exchange) and "
 "<b>Nicolas Peslerbe 💻🌶 </b> (Alumni-EPFL).\n"
 "      This project is supported by the EPFL through the YGRANT program. A"
-" huge thanks to them."
-msgstr ""
+" huge thanks for their support."
+msgstr "Cropconnect est né dans le hackathon contre le Covid-19 de Lazhack. Notre objectif, créer cette plateforme pour palier au manque de travailleurs saisonniers venant des pays européens. L'équipe comprend <b>Maxime Marchionno</b> 💻🍍(EPFL), <b>Alix Buu-hoang</b> 🃏🍒 (EPFL), <b>Nicole Shi</b> 🐞🍑 (Carnegie Mellon University, EPFL exchange) et <b>Nicolas Peslerbe 💻🌶 </b> (Alumni-EPFL).\n"
+"Ce projet est soutenu par l'EPFL via son programme Tech4impact, nous les remercions pour leur support."
 
 #: app/templates/base.html:28
 msgid "CropConnect, Connecting Farmers to Enthousiastic Individuals"
-msgstr "CropConnect fait la connection entre les fermiers et les enthousiastes !"
+msgstr "CropConnect fait la connection entre les fermiers et les enthousiastes"
 
 #: app/templates/farms.html:22
 msgid "Phone"
