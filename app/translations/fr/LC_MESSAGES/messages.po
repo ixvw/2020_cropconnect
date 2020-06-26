@@ -20,7 +20,7 @@ msgstr ""
 
 #: app/forms.py:16
 msgid "Where do you need help ?"
-msgstr ""
+msgstr "Où avez-vous besoin d'aide ?"
 
 #: app/forms.py:16
 msgid "Neuchâtel, Aigle..."
@@ -285,7 +285,7 @@ msgstr "Votre code CropConnect est : %(vericode)s <br>or click the "
 #~ msgstr ""
 
 #~ msgid "Where do you live?"
-#~ msgstr ""
+#~ msgstr "Où habitez-vous ?"
 
 #~ msgid "How did we come up with the platform ?"
 #~ msgstr "Comment sommes-nous arrivés avec cette plateforme ?"
