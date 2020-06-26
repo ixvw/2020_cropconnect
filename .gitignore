@@ -4,5 +4,3 @@
 /app/static/css/styles.css.map
 /credentials.py
 /app/__pycache__/
-/app/db/
-/app/resources/
