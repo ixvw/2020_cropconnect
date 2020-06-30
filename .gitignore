@@ -5,6 +5,6 @@
 /credentials.py
 /app/__pycache__/
 /app/util/__pycache__/
-/app/db/
-/resources/
+/app/db/data.sqlite
+/app/resources/farmimgs/*
 /__pycache__/
