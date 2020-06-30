@@ -177,10 +177,10 @@ msgstr ""
 "d'oeuvre. Si vous êtes un fermier, vous pouvez poster votre annonce sur "
 "le site, elle sera automatiquement publiée. Si vous êtes un particulier, "
 "il vous suffit de chercher dans la liste des fermes disponibles laquelle "
-"vous souhaiterez aider. Nous sommes un association à but non-lucratif, "
-"notre  but est de connecter les fermiers à des enthousiastes voulant "
-"aider. Le fermier peut proposer en échange du travail effectué un panier "
-"de fruit et légumes, du miel ou tout autre produit de la ferme. L'échange"
+"vous souhaiteriez aider. Nous sommes un association à but non-lucratif, "
+"notre  but est de connecter les fermiers à des volontaires."
+"Le fermier peut offrir en échange du travail effectué un panier "
+"de fruits et légumes, du miel ou tout autre produit de la ferme. L'échange"
 " doit se faire sans argent."
 
 #: app/templates/about.html:10
@@ -205,7 +205,7 @@ msgid ""
 "<b>Nicolas Peslerbe 💻🌶 </b> (Alumni-EPFL).\n"
 "      This project is supported by the EPFL through the YGRANT program. A"
 " huge thanks to them."
-msgstr "CropConnect a été pensé durant le hackathon Lauzhack 2019 afin de palier au manque de travailleurs saisonniers durant la crise du Covid-19. L'équipe est composé de <b>Maxime Marchionno</b>, <b>Alix Buu-hoang</b>, <b>Nicole Shi</b> and <b>Nicolas Peslerbe</b>.\n Ce projet est soutenu par l'EPFL via son programme Tech4impact. Un grand merci pour leur soutien. 🐞"
+msgstr "CropConnect a été pensé durant le hackathon Lauzhack 2019 afin de palier au manque de travailleurs saisonniers durant la crise du Covid-19. L'équipe est composée de <b>Alix Buu-hoang</b>,  <b>Maxime Marchionno</b> <b>Nicolas Peslerbe</b> and <b>Nicole Shi</b>\n Ce projet est soutenu par l'EPFL via son programme Tech4impact. Un grand merci pour leur soutien. 🐞"
 
 #: app/templates/base.html:28
 msgid "CropConnect, Connecting Farmers to Enthousiastic Individuals"
@@ -238,13 +238,13 @@ msgid ""
 " CropConnect is a plateform linking people willing to help and farmers. "
 "&nbsp; Please select an option!"
 msgstr ""
-"CropConnect est une communité d'entraide entre les fermiers et les "
+"CropConnect est une communauté d'entraide entre les fermiers et les "
 "particuliers. &nbsp; Sélectionnez une option."
 
 #: app/templates/index.html:21
 msgid " CropConnect is a plateform linking people willing to help and farmers. "
 msgstr ""
-"CropConnect est une communité d'entraide entre les fermiers et les "
+"CropConnect est une communauté d'entraide entre les fermiers et les "
 "particuliers"
 
 #: app/templates/index.html:29

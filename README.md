@@ -7,7 +7,7 @@ on Windows:
 3. virtualenv and activate it
 4. run app from Powershell:
 ```
-pip install .r requirements.txt
+pip install -r requirements.txt
 set FLASK-APP=main.py
 flask run
 ```
@@ -54,10 +54,18 @@ pybabel compile -d app/translations compiling catalog app/translations/fr/LC_MES
 
 Works on version 2.7.
 
-If small changes :
+Check if folder get the rights :
 ```
 
+```
 
+If small changes :
+```
+git pull
+
+git branch (list branches)
+
+git checkout branch (to change branch)
 ```
 
 
