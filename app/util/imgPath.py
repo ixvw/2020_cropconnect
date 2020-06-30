@@ -6,7 +6,7 @@ def imgPath(filename):
     # check whether we are running on the server
     if not app.config["LOCAL"] == "True":
         # print("running on the server! serving/storing img from/to resources...")
-        if variable is None:
+        if variable is None:t
             return(app.config["FARMIMGPATH"] + str(filename))
         else:
             return("")
