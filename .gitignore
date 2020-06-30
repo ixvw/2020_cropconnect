@@ -1,10 +1,12 @@
+*.pyc
+*.pyo
 /venv/
 /env/
 /specification/
 /app/static/css/styles.css.map
 /credentials.py
-/app/__pycache__/
-/app/util/__pycache__/
+/app/_pycache_/
+/app/util/__pycache__/*
+/__pycache__/*
 /app/db/*
 /app/resources/farmimgs/*
-/__pycache__/
