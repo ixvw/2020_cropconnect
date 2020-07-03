@@ -26,7 +26,9 @@
                 {% if debug %}
                     <img src="{{ url_for('display_image', filename=farm.imgname) }}" class="img-fluid img-farm rounded mx-auto d-block" alt="">
                 {% else %}
+                    {%  if farm.imgname|length %}
                     <img src="/{{ imgPathJinja(farm.imgname) }}" class="img-fluid img-farm rounded mx-auto d-block" alt="">
+                    {%  endif %}
                 {% endif %}
                 <div class="card card-body" id="delete_{{ farm.id }}">
                     <a href="deletion?farmid={{ farm.id }}" class="btn btn-warning btn-block" role="button">{{ _("Delete this ad") }}</a>
