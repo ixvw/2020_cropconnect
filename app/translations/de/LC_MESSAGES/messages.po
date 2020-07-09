@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2020-06-26 15:23+0200\n"
+"POT-Creation-Date: 2020-07-09 02:19+0200\n"
 "PO-Revision-Date: 2020-06-16 19:42+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: de\n"
@@ -20,44 +20,44 @@ msgstr ""
 
 #: app/forms.py:16
 msgid "Where do you need help ?"
-msgstr ""
+msgstr "Wo brauchen Sie Hilfe?"
 
 #: app/forms.py:16
 msgid "Neuchâtel, Aigle..."
-msgstr ""
+msgstr "Zürich, Bern..."
 
 #: app/forms.py:16 app/forms.py:17 app/forms.py:18 app/forms.py:19
 #: app/forms.py:20 app/forms.py:21 app/forms.py:22
 msgid "Bitte füllen Sie dieses Feld aus"
-msgstr ""
+msgstr "Bitte füllen Sie dieses Feld aus"
 
 #: app/forms.py:17
 msgid "What help do you need ?"
-msgstr ""
+msgstr "Welche Hilfe benötigen Sie?"
 
 #: app/forms.py:17
-msgid "Harvesting, Planting...."
-msgstr ""
+msgid "Harvesting, Planting..."
+msgstr "Ernte, Pflanzen, Sähen…"
 
 #: app/forms.py:18
 msgid "Additional details"
-msgstr ""
+msgstr "Weitere Details"
 
 #: app/forms.py:18
 msgid "Good shape, Boots..."
-msgstr ""
+msgstr "Gute Figur, Stiefel..."
 
 #: app/forms.py:19
 msgid "When?"
-msgstr ""
+msgstr "Wann?"
 
 #: app/forms.py:19
 msgid "Every Sunday morning"
-msgstr ""
+msgstr "Jeden Samstagmorgen..."
 
-#: app/forms.py:20
+#: app/forms.py:20 app/templates/farms.html:22
 msgid "Phone number"
-msgstr ""
+msgstr "Telefonnummer"
 
 #: app/forms.py:20 app/forms.py:21
 msgid " "
@@ -65,35 +65,35 @@ msgstr ""
 
 #: app/forms.py:21
 msgid "E-Mail:"
-msgstr ""
+msgstr "E-mail:"
 
 #: app/forms.py:21
 msgid "Bitte geben Sie eine gültige E-Mailadresse an"
-msgstr ""
+msgstr "Bitte geben Sie eine gültige E-Mailadresse an"
 
 #: app/forms.py:22
-msgid "In exchange of"
-msgstr ""
+msgid "What can you offer in exchange?"
+msgstr "Was können Sie im Austausch anbieten?"
 
 #: app/forms.py:22
-msgid "A basket of vegetables, Some honey, Love..."
-msgstr ""
+msgid "Fresh produce, travel stipend…"
+msgstr "Frisches Gemüse, Reisestipendium..."
 
 #: app/forms.py:23
-msgid "Photo"
-msgstr ""
+msgid "Photo of the farm"
+msgstr "Bild"
 
 #: app/forms.py:30 app/forms.py:37
 msgid "Submit"
-msgstr ""
+msgstr "Einreichen"
 
 #: app/forms.py:35
 msgid "Where do you live ?"
-msgstr ""
+msgstr "Wo wohnen Sie?"
 
 #: app/forms.py:35
-msgid "start typing..."
-msgstr ""
+msgid "Start typing..."
+msgstr "Fang an zu schrieben…"
 
 #: app/forms.py:41
 msgid "Please enter the verification code we sent to your E-Mail address."
@@ -109,7 +109,7 @@ msgstr ""
 
 #: app/forms.py:47
 msgid "Delete Farm!"
-msgstr ""
+msgstr "Ich möchte meine Einträge löschen!"
 
 #: app/forms.py:50
 msgid "Username"
@@ -153,7 +153,7 @@ msgstr ""
 
 #: app/templates/about.html:5
 msgid "What's CropConnect ?"
-msgstr ""
+msgstr "Was ist CropConnect?"
 
 #: app/templates/about.html:7
 msgid ""
@@ -166,38 +166,59 @@ msgid ""
 "community support and bring neighbourhoods across the globe closer "
 "together."
 msgstr ""
+"CropConnect ist eine Non-Profit-Organisation, die Ihnen bedeutungsvolle "
+"kurzzeitige Beschäftigungen in landwirtschaftlichen Betrieben vermittelt."
+" Unser Programm basiert auf freiwilliger ArbeitBrauchen Sie als "
+"Arbeitgeber*in in einem landwirtschaftlichen Betrieb Hilfe, geben Sie "
+"einfach auf unsere Website eine Anzeige auf. Wenn Sie nach einer aktiven "
+"und eindrucksvollen Erfahrung suchen, können Sie auf unserer Webseite "
+"ihren Ort eingeben. Wir zeigen Ihnen dann alle Landwirtschaftlichen "
+"Betriebe in ihrer Umgebung, die Hilfe brauchen.Unser Ziel ist es "
+"Gemeinden zu unterstützen und Nachbarschaften auf der ganzen Welt "
+"zusammenzubringen. "
 
 #: app/templates/about.html:10
 msgid "How to contact CropConnect ?"
-msgstr ""
+msgstr "Wie können Sie uns kontaktieren?"
 
 #: app/templates/about.html:12
 msgid "You can reach CropConnect at"
-msgstr ""
+msgstr "Schreiben Sie uns eine E-Mail an: "
 
 #: app/templates/about.html:15
 msgid "Who are we ?"
-msgstr ""
+msgstr "Wer sind wir?"
 
 #: app/templates/about.html:17
 msgid ""
 "CropConnect originated from the LauzHack Against Covid19 competition in "
 "April 2020. We were motivated to launch this platform because of the "
 "seasonal worker shortage from the coronavirus. The team is composed of "
-"<b>Maxime Marchionno</b> 💻🍍(EPFL), <b>Alix Buu-hoang</b> 🃏🍒 (EPFL), "
-"<b>Nicole Shi</b> 🐞🍑 (Carnegie Mellon University, EPFL exchange) and "
-"<b>Nicolas Peslerbe 💻🌶 </b> (Alumni-EPFL).\n"
+"<b>Maxime Marchionno</b> (EPFL), <b>Alix Buu-hoang</b> (EPFL), <b>Nicole "
+"Shi</b> (Carnegie Mellon University, EPFL exchange) and <b>Nicolas "
+"Peslerbe </b> (Alumni-EPFL).\n"
 "      This project is supported by the EPFL through the YGRANT program. A"
 " huge thanks to them."
 msgstr ""
+"Die Idee zu CropConnect kam uns bei der Teilnahme am LauzHack Against "
+"Covid 19 Wettbewerb im April 2020. Unsere Gründungsmitglieder sind: "
+"Maxime Marchionno  (EPFL), Alix Buu-hoang (EPFL), Nicole Shi (Carnegie "
+"Mellon University, EPFL Austausch) und Nicolas Peslerbe (Alumni-EPFL) and"
+" Simon Duchastel (University of Washington, EPFL Austausch). Die Idee für"
+" unser Projekt kam uns aufgrund des, durch die Corona-Krise bedingten, "
+"Mangels an saisonalen Arbietkräften in der Landwirtschaft."
 
 #: app/templates/base.html:28
 msgid "CropConnect, Connecting Farmers to Enthousiastic Individuals"
 msgstr ""
 
-#: app/templates/farms.html:22
-msgid "Phone"
-msgstr ""
+#: app/templates/base.html:43
+msgid "Home"
+msgstr "Zuhause"
+
+#: app/templates/base.html:44
+msgid "About"
+msgstr "Über"
 
 #: app/templates/farms.html:32
 msgid "Delete this ad"
@@ -205,39 +226,51 @@ msgstr ""
 
 #: app/templates/farms.html:35
 msgid "Report abuse"
-msgstr ""
+msgstr "Missbrauch melden!"
 
 #: app/templates/form_farmer.html:66
 msgid ""
 "Please provide a valid Swiss phone number: +41 79 799 99 99 or 079 999 99"
 " 99"
 msgstr ""
+"Bitte geben Sie ein gültiges Schweizer Telefonnummer  : +41 79 799 99 99 "
+"or 079 999 99"
 
 #: app/templates/form_farmer.html:75
 msgid "You will have to confirm the email address."
+msgstr "Sie müssen ihre E-Mailadresse bestätigen!"
+
+#: app/templates/form_helper.html:17
+msgid ""
+"Give your location to display the list of people in need from the closest"
+" to the furtherst."
 msgstr ""
+"Geben Sie Ihren Standort an, um die Liste der bedürftigen Menschen aus "
+"der nächstgelegenen Region anzuzeigen."
 
 #: app/templates/index.html:16
 msgid ""
-" CropConnect is a plateform linking people willing to help and farmers. "
+" CropConnect is a platform linking people willing to help and farmers. "
 "&nbsp; Please select an option!"
 msgstr ""
+"CropConnect verbindet Menschen, die gerne auf Bauernhöfen helfen möchten."
+" &nbsp; Bitte wählen Sie eine Option aus! "
 
 #: app/templates/index.html:21
-msgid " CropConnect is a plateform linking people willing to help and farmers. "
-msgstr ""
+msgid " CropConnect is a platform linking people willing to help and farmers."
+msgstr "CropConnect verbindet Menschen, die gerne auf Bauernhöfen helfen möchten."
 
 #: app/templates/index.html:29
 msgid "I want to help!"
-msgstr "Ich will helfen!"
+msgstr "Ich möchte helfen!"
 
 #: app/templates/index.html:32
 msgid "I am seeking help!"
-msgstr ""
+msgstr "Ich suche Hilfe!"
 
 #: app/templates/index.html:39
 msgid "To get some help, please fill the form below!"
-msgstr ""
+msgstr "Um Hilfe zu erhalten, füllen Sie bitte das folgende Formular aus!"
 
 #: app/util/sendgridMail.py:19
 msgid "Cropconnect Verficiation Code"
@@ -338,5 +371,55 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Hellooooooooo"
+#~ msgstr ""
+
+#~ msgid "Harvesting, Planting...."
+#~ msgstr ""
+
+#~ msgid "In exchange of"
+#~ msgstr ""
+
+#~ msgid "A basket of vegetables, Some honey, Love..."
+#~ msgstr ""
+
+#~ msgid "Photo"
+#~ msgstr ""
+
+#~ msgid "start typing..."
+#~ msgstr "Fang an zu schrieben…"
+
+#~ msgid "Phone"
+#~ msgstr ""
+
+#~ msgid ""
+#~ " CropConnect is a plateform linking "
+#~ "people willing to help and farmers. "
+#~ "&nbsp; Please select an option!"
+#~ msgstr ""
+
+#~ msgid " help!"
+#~ msgstr "Ich möchte helfen!"
+
+#~ msgid ""
+#~ "CropConnect originated from the LauzHack "
+#~ "Against Covid19 competition in April "
+#~ "2020. We were motivated to launch "
+#~ "this platform because of the seasonal"
+#~ " worker shortage from the coronavirus. "
+#~ "The team is composed of <b>Maxime "
+#~ "Marchionno</b> 💻🍍(EPFL), <b>Alix Buu-hoang</b>"
+#~ " 🃏🍒 (EPFL), <b>Nicole Shi</b> 🐞🍑 "
+#~ "(Carnegie Mellon University, EPFL exchange)"
+#~ " and <b>Nicolas Peslerbe 💻🌶 </b> "
+#~ "(Alumni-EPFL).\n"
+#~ "      This project is supported by "
+#~ "the EPFL through the YGRANT program. "
+#~ "A huge thanks to them."
+#~ msgstr ""
+
+#~ msgid ""
+#~ " CropConnect is a plateform linking "
+#~ "people willing to help and farmers."
+#~ " \n"
 #~ msgstr ""
 
